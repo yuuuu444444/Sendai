@@ -4,113 +4,106 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>🌸 仙台旅遊手冊</title>
+<title>仙台旅遊手冊</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Zen+Kaku+Gothic+New:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
-:root { --primary: #2d6a4f; --accent: #f4a261; --accent2: #e76f51; --soft: #f8f9fa; --text: #1a1a2e; --muted: #888; --border: #e8e8e8; }
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'Noto Sans TC', sans-serif; background: #f0f4f0; color: var(--text); min-height: 100vh; padding-bottom: 80px; }
-
-.header { background: white; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+body { font-family: 'Noto Sans TC', sans-serif; background: #f5f0ff; color: #2d1b69; min-height: 100vh; padding-bottom: 80px; }
+.header { background: white; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 12px rgba(100,60,200,0.08); }
 .header-top { display: flex; align-items: center; justify-content: space-between; padding: 14px 16px 10px; }
-.trip-title { font-family: ‘Zen Kaku Gothic New’, sans-serif; font-size: 17px; font-weight: 900; }
+.trip-title { font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 17px; font-weight: 900; color: #2d1b69; }
 .connected { display: flex; align-items: center; gap: 4px; font-size: 11px; color: #52c41a; margin-top: 2px; }
-.dot { width: 7px; height: 7px; background: #52c41a; border-radius: 50%; }
-.btn-new { background: var(–text); color: white; border: none; border-radius: 10px; padding: 8px 12px; font-size: 12px; font-weight: 700; cursor: pointer; font-family: ‘Noto Sans TC’, sans-serif; }
+.dot { width: 7px; height: 7px; background: #52c41a; border-radius: 50%; display: inline-block; }
+.btn-new { background: #1a2d6e; color: white; border: none; border-radius: 10px; padding: 8px 12px; font-size: 12px; font-weight: 700; cursor: pointer; font-family: 'Noto Sans TC', sans-serif; }
 
-/* Date tabs - 跟參考圖一樣的格式 */
-.date-scroll { overflow-x: auto; scrollbar-width: none; border-bottom: 1px solid var(–border); }
+.date-scroll { overflow-x: auto; scrollbar-width: none; padding: 10px 16px 0; }
 .date-scroll::-webkit-scrollbar { display: none; }
-.date-row { display: flex; min-width: max-content; }
-.date-tab { flex-shrink: 0; width: 72px; padding: 6px 0 8px; text-align: center; cursor: pointer; border-bottom: 3px solid transparent; margin-bottom: -1px; }
-.date-tab.active { border-bottom-color: var(–primary); }
-.tab-date { font-size: 10px; color: var(–muted); }
-.tab-num { font-size: 24px; font-weight: 900; font-family: ‘Zen Kaku Gothic New’, sans-serif; color: var(–muted); line-height: 1.1; }
-.date-tab.active .tab-num { color: var(–primary); }
-.tab-weekday { font-size: 10px; color: var(–muted); }
+.date-row { display: flex; gap: 8px; padding-bottom: 10px; }
+.date-tab { flex-shrink: 0; width: 58px; padding: 6px 0; text-align: center; cursor: pointer; border: 2px solid #1a2d6e; border-radius: 12px; background: white; transition: all 0.15s; }
+.date-tab.active { background: #ffe0ec; border-color: #ffb6cc; }
+.tab-date { font-size: 10px; color: #1a2d6e; }
+.date-tab.active .tab-date { color: #c0396e; }
+.tab-num { font-size: 22px; font-weight: 900; font-family: ‘Zen Kaku Gothic New’, sans-serif; color: #1a2d6e; line-height: 1.1; }
+.date-tab.active .tab-num { color: #c0396e; }
+.tab-weekday { font-size: 10px; color: #1a2d6e; }
+.date-tab.active .tab-weekday { color: #c0396e; }
 
-/* City row - 跟日期對齊 */
-.city-row { display: flex; overflow-x: auto; scrollbar-width: none; border-top: 1px solid var(–border); background: white; }
+.city-row { display: flex; overflow-x: auto; scrollbar-width: none; background: white; border-top: 1px solid #e8e0ff; border-bottom: 1px solid #e8e0ff; padding: 0 8px; }
 .city-row::-webkit-scrollbar { display: none; }
-.city-cell { flex-shrink: 0; width: 72px; padding: 5px 4px; text-align: center; cursor: pointer; }
-.city-chip { display: inline-block; padding: 2px 6px; border-radius: 10px; font-size: 10px; font-weight: 700; white-space: nowrap; max-width: 68px; overflow: hidden; text-overflow: ellipsis; }
-.city-sub { font-size: 9px; color: var(–muted); margin-top: 1px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.chip-green { background: #e8f5ee; color: #2d6a4f; }
-.chip-orange { background: #fff0e0; color: #e07b00; }
-.chip-pink { background: #ffe8f0; color: #c0392b; }
-.chip-blue { background: #e8f0ff; color: #1a56db; }
+.city-cell { flex-shrink: 0; width: 66px; padding: 5px 4px; text-align: center; cursor: pointer; }
+.city-chip { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 11px; font-weight: 700; }
+.city-sub { font-size: 9px; color: #a89cc8; margin-top: 1px; }
+.chip-purple { background: #ede8ff; color: #6c3fc5; }
+.chip-pink { background: #ffe8f5; color: #c0396e; }
+.chip-blue { background: #e8f0ff; color: #1a2d6e; }
+.chip-green { background: #e8f5ee; color: #2d7a4f; }
+.chip-orange { background: #fff0e0; color: #c57a00; }
 
 .page { display: none; padding: 14px; }
 .page.active { display: block; }
-.card { background: white; border-radius: 16px; padding: 16px; margin-bottom: 14px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+.card { background: white; border-radius: 16px; padding: 16px; margin-bottom: 14px; box-shadow: 0 2px 12px rgba(100,60,200,0.08); }
 .card-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
-.card-title { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-.card-title h2 { font-size: 17px; font-weight: 900; font-family: ‘Zen Kaku Gothic New’, sans-serif; }
+.card-title { display: flex; align-items: center; gap: 8px; }
+.card-title h2 { font-size: 17px; font-weight: 900; font-family: ‘Zen Kaku Gothic New’, sans-serif; color: #2d1b69; }
 .badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 11px; font-weight: 700; }
 .card-actions { display: flex; gap: 2px; }
 .icon-btn { background: none; border: none; font-size: 16px; cursor: pointer; opacity: 0.5; padding: 4px; }
 .info-row { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; }
-.lbl { color: var(–muted); font-size: 12px; min-width: 36px; padding-top: 1px; }
-.val { flex: 1; font-size: 13px; font-weight: 500; line-height: 1.5; }
-.price-badge { background: #fff8e1; color: #e65100; padding: 2px 8px; border-radius: 8px; font-size: 12px; font-weight: 700; display: inline-block; }
-
-/* 交通工具 pills - 有邊框樣式，選中的黑底白字 */
+.lbl { color: #a89cc8; font-size: 12px; min-width: 36px; padding-top: 1px; }
+.val { flex: 1; font-size: 13px; font-weight: 500; line-height: 1.5; color: #2d1b69; }
+.price-badge { background: #fff8e1; color: #c57a00; padding: 2px 8px; border-radius: 8px; font-size: 12px; font-weight: 700; display: inline-block; }
 .transport-wrap { display: flex; flex-wrap: wrap; gap: 6px; }
-.t-show { padding: 5px 12px; border-radius: 20px; font-size: 12px; border: 1.5px solid #ddd; background: white; color: var(–text); display: inline-flex; align-items: center; gap: 4px; }
-.t-show.selected { background: var(–text); color: white; border-color: var(–text); }
-
-.divider { border: none; border-top: 1px solid var(–border); margin: 14px 0; }
+.t-tag { padding: 5px 12px; border-radius: 20px; font-size: 13px; font-weight: 500; border: 1.5px solid #1a2d6e; background: white; color: #1a2d6e; display: inline-block; }
+.t-tag.selected { background: #1a2d6e; color: white; border-color: #1a2d6e; }
+.divider { border: none; border-top: 1px solid #e8e0ff; margin: 14px 0; }
 .map-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
-.map-lbl { font-size: 12px; color: var(–muted); }
-.map-btn { background: #e8f4ff; color: #1a73e8; border: none; border-radius: 8px; padding: 6px 12px; font-size: 12px; font-weight: 700; cursor: pointer; font-family: ‘Noto Sans TC’, sans-serif; }
+.map-lbl { font-size: 12px; color: #a89cc8; }
+.map-btn { background: #e8f0ff; color: #1a2d6e; border: none; border-radius: 8px; padding: 6px 12px; font-size: 12px; font-weight: 700; cursor: pointer; font-family: ‘Noto Sans TC’, sans-serif; }
 .stops { display: flex; flex-direction: column; gap: 7px; }
-.stop-item { display: flex; align-items: center; gap: 10px; background: var(–soft); border-radius: 10px; padding: 10px 12px; }
-.stop-num { width: 28px; height: 28px; background: var(–text); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; flex-shrink: 0; }
-.stop-time { font-size: 12px; color: var(–muted); min-width: 44px; }
+.stop-item { display: flex; align-items: center; gap: 10px; background: #f5f0ff; border-radius: 10px; padding: 10px 12px; }
+.stop-num { width: 28px; height: 28px; background: #1a2d6e; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; flex-shrink: 0; }
+.stop-time { font-size: 12px; color: #a89cc8; min-width: 44px; }
 .stop-info { flex: 1; }
-.stop-place { font-size: 14px; font-weight: 700; }
-.stop-note { font-size: 11px; color: var(–muted); margin-top: 1px; }
+.stop-place { font-size: 14px; font-weight: 700; color: #2d1b69; }
+.stop-note { font-size: 11px; color: #a89cc8; margin-top: 1px; }
 .stop-del { background: none; border: none; font-size: 14px; cursor: pointer; opacity: 0.4; flex-shrink: 0; }
-.add-btn { border: 2px dashed var(–border); background: none; border-radius: 10px; padding: 10px; width: 100%; color: var(–muted); font-size: 13px; cursor: pointer; font-family: ‘Noto Sans TC’, sans-serif; margin-top: 6px; }
-.note-box { background: #fffbf0; border-left: 3px solid var(–accent); border-radius: 0 10px 10px 0; padding: 10px 12px; margin-top: 12px; font-size: 12px; color: #7a5c00; line-height: 1.6; }
-.note-box b { display: block; color: var(–accent2); font-size: 13px; margin-bottom: 3px; }
+.add-btn { border: 2px dashed #d4c8ff; background: none; border-radius: 10px; padding: 10px; width: 100%; color: #a89cc8; font-size: 13px; cursor: pointer; font-family: ‘Noto Sans TC’, sans-serif; margin-top: 6px; }
+.note-box { background: #fffbf0; border-left: 3px solid #f4a261; border-radius: 0 10px 10px 0; padding: 10px 12px; margin-top: 12px; font-size: 12px; color: #7a5c00; line-height: 1.6; }
+.note-box b { display: block; color: #e76f51; font-size: 13px; margin-bottom: 3px; }
 .creds-section { margin-top: 14px; }
-.creds-lbl { font-size: 12px; color: var(–muted); margin-bottom: 7px; }
-.cred-item { display: flex; align-items: center; gap: 10px; background: var(–soft); border-radius: 10px; padding: 10px 12px; margin-bottom: 6px; }
-.cred-text { flex: 1; font-size: 13px; font-weight: 500; }
+.creds-lbl { font-size: 12px; color: #a89cc8; margin-bottom: 7px; }
+.cred-item { display: flex; align-items: center; gap: 10px; background: #f5f0ff; border-radius: 10px; padding: 10px 12px; margin-bottom: 6px; }
+.cred-text { flex: 1; font-size: 13px; font-weight: 500; color: #2d1b69; }
 .cred-del { background: none; border: none; font-size: 13px; cursor: pointer; opacity: 0.4; }
 
-/* Modal */
-.overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 200; align-items: flex-end; }
+.overlay { display: none; position: fixed; inset: 0; background: rgba(45,27,105,0.4); z-index: 200; align-items: flex-end; }
 .overlay.open { display: flex; }
 .modal { background: white; border-radius: 20px 20px 0 0; padding: 20px 16px 40px; width: 100%; max-height: 88vh; overflow-y: auto; }
-.modal-title { font-size: 16px; font-weight: 900; margin-bottom: 16px; }
+.modal-title { font-size: 16px; font-weight: 900; margin-bottom: 16px; color: #2d1b69; }
 .field { margin-bottom: 11px; }
-.field label { display: block; font-size: 11px; color: var(–muted); margin-bottom: 4px; font-weight: 700; }
-.field input, .field textarea { width: 100%; padding: 10px 12px; border: 1.5px solid var(–border); border-radius: 10px; font-size: 14px; font-family: ‘Noto Sans TC’, sans-serif; outline: none; color: var(–text); background: white; }
-.field input:focus, .field textarea:focus { border-color: var(–primary); }
+.field label { display: block; font-size: 11px; color: #a89cc8; margin-bottom: 4px; font-weight: 700; }
+.field input, .field textarea { width: 100%; padding: 10px 12px; border: 1.5px solid #e8e0ff; border-radius: 10px; font-size: 14px; font-family: ‘Noto Sans TC’, sans-serif; outline: none; color: #2d1b69; background: white; }
+.field input:focus, .field textarea:focus { border-color: #1a2d6e; }
 .field textarea { height: 72px; resize: none; }
 .t-pills { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
-.t-pill { padding: 6px 12px; border-radius: 20px; border: 1.5px solid var(–border); font-size: 12px; cursor: pointer; user-select: none; background: white; color: var(–text); }
-.t-pill.on { background: var(–text); color: white; border-color: var(–text); }
+.t-pill { padding: 6px 12px; border-radius: 20px; border: 1.5px solid #1a2d6e; font-size: 13px; cursor: pointer; user-select: none; background: white; color: #1a2d6e; display: inline-block; font-family: ‘Noto Sans TC’, sans-serif; }
+.t-pill.on { background: #1a2d6e; color: white; }
 .modal-btns { display: flex; gap: 10px; margin-top: 16px; }
-.btn-cancel { flex: 1; padding: 12px; border: 1.5px solid var(–border); border-radius: 12px; background: none; font-size: 14px; font-weight: 700; cursor: pointer; font-family: ‘Noto Sans TC’, sans-serif; }
-.btn-save { flex: 2; padding: 12px; background: var(–primary); color: white; border: none; border-radius: 12px; font-size: 14px; font-weight: 700; cursor: pointer; font-family: ‘Noto Sans TC’, sans-serif; }
+.btn-cancel { flex: 1; padding: 12px; border: 1.5px solid #e8e0ff; border-radius: 12px; background: none; font-size: 14px; font-weight: 700; cursor: pointer; font-family: ‘Noto Sans TC’, sans-serif; color: #2d1b69; }
+.btn-save { flex: 2; padding: 12px; background: #1a2d6e; color: white; border: none; border-radius: 12px; font-size: 14px; font-weight: 700; cursor: pointer; font-family: ‘Noto Sans TC’, sans-serif; }
 .btn-save:disabled { opacity: 0.5; }
-
-.fab { position: fixed; bottom: 24px; right: 20px; background: var(–primary); color: white; border: none; border-radius: 50px; padding: 13px 18px; font-size: 14px; font-weight: 700; cursor: pointer; font-family: ‘Noto Sans TC’, sans-serif; box-shadow: 0 4px 20px rgba(45,106,79,0.4); z-index: 99; display: none; }
-.loading { text-align: center; padding: 50px 20px; color: var(–muted); }
-.spinner { width: 28px; height: 28px; border: 3px solid var(–border); border-top-color: var(–primary); border-radius: 50%; animation: spin 0.8s linear infinite; margin: 0 auto 12px; }
+.fab { position: fixed; bottom: 24px; right: 20px; background: #1a2d6e; color: white; border: none; border-radius: 50px; padding: 13px 18px; font-size: 14px; font-weight: 700; cursor: pointer; font-family: ‘Noto Sans TC’, sans-serif; box-shadow: 0 4px 20px rgba(26,45,110,0.4); z-index: 99; display: none; }
+.loading { text-align: center; padding: 50px 20px; color: #a89cc8; }
+.spinner { width: 28px; height: 28px; border: 3px solid #e8e0ff; border-top-color: #1a2d6e; border-radius: 50%; animation: spin 0.8s linear infinite; margin: 0 auto 12px; }
 @keyframes spin { to { transform: rotate(360deg); } }
-.empty { text-align: center; padding: 60px 20px; color: var(–muted); }
+.empty { text-align: center; padding: 60px 20px; color: #a89cc8; }
 .empty .emoji { font-size: 48px; margin-bottom: 12px; }
-.toast { position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%); background: var(–text); color: white; padding: 10px 20px; border-radius: 50px; font-size: 13px; font-weight: 700; z-index: 300; opacity: 0; transition: opacity 0.3s; pointer-events: none; white-space: nowrap; }
+.toast { position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%); background: #1a2d6e; color: white; padding: 10px 20px; border-radius: 50px; font-size: 13px; font-weight: 700; z-index: 300; opacity: 0; transition: opacity 0.3s; pointer-events: none; white-space: nowrap; }
 .toast.show { opacity: 1; }
 </style>
 
 </head>
 <body>
-
 <div class="header">
   <div class="header-top">
     <div>
@@ -132,7 +125,7 @@ body { font-family: 'Noto Sans TC', sans-serif; background: #f0f4f0; color: var(
     <div class="field"><label>日期（例：5/10）</label><input id="d-date" placeholder="5/10"></div>
     <div class="field"><label>星期（例：六）</label><input id="d-week" placeholder="六" maxlength="1"></div>
     <div class="field"><label>城市</label><input id="d-city" placeholder="仙台"></div>
-    <div class="field"><label>城市副標（可選，例：關西…）</label><input id="d-sub" placeholder="關西…"></div>
+    <div class="field"><label>城市副標（可選）</label><input id="d-sub" placeholder="嵐山"></div>
     <div class="field"><label>目的地</label><input id="d-dest" placeholder="仙台站 → 松島"></div>
     <div class="field"><label>行程說明</label><input id="d-itin" placeholder="觀光、美食、購物"></div>
     <div class="field"><label>住宿</label><input id="d-hotel" placeholder="Richmond Hotel Sendai"></div>
@@ -149,7 +142,7 @@ body { font-family: 'Noto Sans TC', sans-serif; background: #f0f4f0; color: var(
       <input id="d-transport-custom" placeholder="自填其他（例：纜車）">
     </div>
     <div class="field"><label>費用預算</label><input id="d-note" placeholder="住宿 NT$2,500、餐費 NT$800"></div>
-    <div class="field"><label>備注 / 注意事項</label><textarea id="d-memo" placeholder="牛舌記得訂位！Suica 可直接使用..."></textarea></div>
+    <div class="field"><label>備注 / 注意事項</label><textarea id="d-memo" placeholder="牛舌記得訂位！"></textarea></div>
     <div class="modal-btns">
       <button class="btn-cancel" onclick="closeOverlay('dayOverlay')">取消</button>
       <button class="btn-save" id="saveDayBtn" onclick="saveDay()">儲存行程</button>
@@ -162,7 +155,7 @@ body { font-family: 'Noto Sans TC', sans-serif; background: #f0f4f0; color: var(
     <div class="modal-title">📍 新增地點</div>
     <div class="field"><label>時間</label><input id="s-time" type="time"></div>
     <div class="field"><label>地點名稱</label><input id="s-place" placeholder="瑞巖寺"></div>
-    <div class="field"><label>備注（可選）</label><input id="s-note" placeholder="門票 NT$200、必拍景點"></div>
+    <div class="field"><label>備注（可選）</label><input id="s-note" placeholder="門票 NT$200"></div>
     <div class="modal-btns">
       <button class="btn-cancel" onclick="closeOverlay('stopOverlay')">取消</button>
       <button class="btn-save" onclick="saveStop()">新增地點</button>
@@ -184,33 +177,33 @@ body { font-family: 'Noto Sans TC', sans-serif; background: #f0f4f0; color: var(
 <div class="toast" id="toast"></div>
 
 <script>
-const SUPA_URL = 'https://nmrrokbdvesuioxxniaj.supabase.co';
-const SUPA_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5tcnJva2JkdmVzdWlveHhuaWFqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU1MzQ2NTYsImV4cCI6MjA5MTExMDY1Nn0.Y-B_V2OGkXeSFc63hbU2QcavbyRkpwh-lAdZA5y8kaY';
-const H = { 'Content-Type':'application/json', 'apikey': SUPA_KEY, 'Authorization': `Bearer ${SUPA_KEY}`, 'Prefer': 'return=representation' };
-
-let trips = [], currentId = null, editingId = null;
+var SUPA_URL = 'https://nmrrokbdvesuioxxniaj.supabase.co';
+var SUPA_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5tcnJva2JkdmVzdWlveHhuaWFqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU1MzQ2NTYsImV4cCI6MjA5MTExMDY1Nn0.Y-B_V2OGkXeSFc63hbU2QcavbyRkpwh-lAdZA5y8kaY';
+var H = { 'Content-Type':'application/json', 'apikey': SUPA_KEY, 'Authorization': 'Bearer ' + SUPA_KEY, 'Prefer': 'return=representation' };
+var trips = [], currentId = null, editingId = null;
 
 async function api(method, path, body) {
-  const r = await fetch(SUPA_URL + path, { method, headers: H, body: body ? JSON.stringify(body) : undefined });
+  var r = await fetch(SUPA_URL + path, { method: method, headers: H, body: body ? JSON.stringify(body) : undefined });
   if (r.status === 204) return null;
-  const data = await r.json();
+  var data = await r.json();
   if (!r.ok) throw new Error(JSON.stringify(data));
   return data;
 }
 
 function toast(msg) {
-  const el = document.getElementById('toast');
+  var el = document.getElementById('toast');
   el.textContent = msg;
   el.classList.add('show');
-  setTimeout(() => el.classList.remove('show'), 2200);
+  setTimeout(function(){ el.classList.remove('show'); }, 2200);
 }
 
 function chipClass(city) {
-  if (!city) return 'chip-green';
-  if (['松島','山形','藏王','奈良','京都'].some(x => city.includes(x))) return 'chip-pink';
-  if (['大阪','東京','首爾'].some(x => city.includes(x))) return 'chip-orange';
-  if (['回家','機場','返'].some(x => city.includes(x))) return 'chip-blue';
-  return 'chip-green';
+  if (!city) return 'chip-purple';
+  if (['松島','山形','藏王','奈良','京都'].some(function(x){ return city.includes(x); })) return 'chip-pink';
+  if (['大阪','東京','首爾'].some(function(x){ return city.includes(x); })) return 'chip-orange';
+  if (['回家','機場','返'].some(function(x){ return city.includes(x); })) return 'chip-blue';
+  if (['仙台','北海道','札幌'].some(function(x){ return city.includes(x); })) return 'chip-green';
+  return 'chip-purple';
 }
 
 async function load() {
@@ -218,125 +211,92 @@ async function load() {
     trips = await api('GET', '/rest/v1/trips?order=sort_order.asc,id.asc');
     renderAll();
   } catch(e) {
-    document.getElementById('pages').innerHTML = `<div class="loading">⚠️ 連線失敗，請重新整理</div>`;
+    document.getElementById('pages').innerHTML = '<div class="loading">⚠️ 連線失敗，請重新整理</div>';
   }
 }
 
 function renderAll() {
-  const tabs = document.getElementById('tabs');
-  const chips = document.getElementById('chips');
-  const pages = document.getElementById('pages');
-
-  if (trips.length === 0) {
+  var tabs = document.getElementById('tabs');
+  var chips = document.getElementById('chips');
+  var pages = document.getElementById('pages');
+  if (!trips || trips.length === 0) {
     tabs.innerHTML = ''; chips.innerHTML = '';
-    pages.innerHTML = `<div class="empty"><div class="emoji">🗺️</div><p>還沒有行程</p><small style="margin-top:6px;display:block">點右上角「＋ 新增行程」開始規劃！</small></div>`;
+    pages.innerHTML = '<div class="empty"><div class="emoji">🗺️</div><p>還沒有行程</p><small style="margin-top:6px;display:block">點右上角「＋ 新增行程」開始規劃！</small></div>';
     document.getElementById('fab').style.display = 'none';
     return;
   }
-
-  tabs.innerHTML = trips.map((t, i) => {
-    const p = (t.date||'').split('/');
-    return `<div class="date-tab${i===0?' active':''}" id="tab-${t.id}" onclick="switchTo(${t.id})">
-      <div class="tab-date">${p[0]||''}/${p[1]||''}</div>
-      <div class="tab-num">${p[1]||String(i+1).padStart(2,'0')}</div>
-      <div class="tab-weekday">${t.day||''}</div>
-    </div>`;
+  tabs.innerHTML = trips.map(function(t, i) {
+    var p = (t.date || '').split('/');
+    return '<div class="date-tab' + (i===0?' active':'') + '" id="tab-' + t.id + '" onclick="switchTo(' + t.id + ')">' +
+      '<div class="tab-date">' + (p[0]||'') + '/' + (p[1]||'') + '</div>' +
+      '<div class="tab-num">' + (p[1] || String(i+1).padStart(2,'0')) + '</div>' +
+      '<div class="tab-weekday">' + (t.day||'') + '</div>' +
+      '</div>';
   }).join('');
-
-  chips.innerHTML = trips.map((t, i) =>
-    `<div class="city-cell${i===0?' active':''}" id="chip-${t.id}" onclick="switchTo(${t.id})">
-      <div class="city-chip ${chipClass(t.city)}">${t.city||'行程'}</div>
-      ${t.itin ? `<div class="city-sub">${t.itin.slice(0,5)}…</div>` : ''}
-    </div>`
-  ).join('');
-
-  pages.innerHTML = trips.map((t, i) => renderPage(t, i)).join('');
-  currentId = trips[0].id;
+  chips.innerHTML = trips.map(function(t, i) {
+    return '<div class="city-cell" id="chip-' + t.id + '" onclick="switchTo(' + t.id + ')">' +
+      '<div class="city-chip ' + chipClass(t.city) + '">' + (t.city||'行程') + '</div>' +
+      (t.sub ? '<div class="city-sub">' + t.sub + '</div>' : '') +
+      '</div>';
+  }).join('');
+  pages.innerHTML = trips.map(function(t, i) { return renderPage(t, i); }).join('');
   document.getElementById('fab').style.display = 'block';
+  switchTo(trips[0].id);
 }
 
 function renderPage(t, idx) {
-  const stops = Array.isArray(t.stops) ? t.stops : [];
-  const creds = Array.isArray(t.creds) ? t.creds : [];
-  const transport = t.transport ? t.transport.split(',').filter(x=>x.trim()) : [];
-
-  const stopsHTML = stops.map((s, i) => `
-    <div class="stop-item">
-      <div class="stop-num">${i+1}</div>
-      <div class="stop-time">${s.time||''}</div>
-      <div class="stop-info">
-        <div class="stop-place">${s.place||''}</div>
-        ${s.note ? `<div class="stop-note">${s.note}</div>` : ''}
-      </div>
-      <button class="stop-del" onclick="delStop(${t.id},${i})">🗑</button>
-    </div>`).join('');
-
-  const credsHTML = creds.map((c, i) => `
-    <div class="cred-item">
-      <span>📎</span>
-      <span class="cred-text">${c}</span>
-      <button class="cred-del" onclick="delCred(${t.id},${i})">✕</button>
-    </div>`).join('');
-
-  const transportHTML = transport.length
-    ? transport.map(p => `<span class="t-show selected">${p}</span>`).join('')
-    : '<span style="color:var(--muted);font-size:13px">—</span>';
-
-  return `<div class="page${idx===0?' active':''}" id="page-${t.id}">
-    <div class="card">
-      <div class="card-header">
-        <div class="card-title">
-          <h2>第${idx+1}天(${t.day||''})</h2>
-          <span class="badge ${chipClass(t.city)}">${t.city||''}</span>
-        </div>
-        <div class="card-actions">
-          <button class="icon-btn" onclick="openEditModal(${t.id})">✏️</button>
-          <button class="icon-btn" onclick="delDay(${t.id})">🗑️</button>
-        </div>
-      </div>
-      <div class="info-row"><span class="lbl">目的地</span><span class="val">${t.dest||'—'} 📍</span></div>
-      <div class="info-row"><span class="lbl">行程</span><span class="val">${t.itin||'—'}</span></div>
-      <div class="info-row"><span class="lbl">住宿</span><span class="val">${t.hotel||'—'} 📍</span></div>
-      <div class="info-row"><span class="lbl">費用</span><span class="val"><span class="price-badge">💴 ${t.note||'—'}</span></span></div>
-      <div class="info-row">
-        <span class="lbl">交通</span>
-        <div class="val"><div class="transport-wrap">${transportHTML}</div></div>
-      </div>
-      <hr class="divider">
-      <div class="map-row">
-        <div class="map-lbl">📍 當日行程地點</div>
-        <button class="map-btn" onclick="openMap('${(t.dest||t.city||'仙台').replace(/'/g,"\\'")}')">Google Maps 路線 ↗</button>
-      </div>
-      <div class="stops">
-        ${stopsHTML}
-        <button class="add-btn" onclick="currentId=${t.id};openStopModal()">＋ 新增地點</button>
-      </div>
-      ${t.memo ? `<div class="note-box"><b>📝 備注</b>${t.memo}</div>` : ''}
-      <div class="creds-section">
-        <div class="creds-lbl">憑證</div>
-        ${credsHTML}
-        <button class="add-btn" onclick="currentId=${t.id};openCredModal()">＋ 新增憑證</button>
-      </div>
-    </div>
-  </div>`;
+  var stops = Array.isArray(t.stops) ? t.stops : [];
+  var creds = Array.isArray(t.creds) ? t.creds : [];
+  var transport = t.transport ? t.transport.split(',').filter(function(x){ return x.trim(); }) : [];
+  var stopsHTML = stops.map(function(s, i) {
+    return '<div class="stop-item">' +
+      '<div class="stop-num">' + (i+1) + '</div>' +
+      '<div class="stop-time">' + (s.time||'') + '</div>' +
+      '<div class="stop-info"><div class="stop-place">' + (s.place||'') + '</div>' + (s.note ? '<div class="stop-note">' + s.note + '</div>' : '') + '</div>' +
+      '<button class="stop-del" onclick="delStop(' + t.id + ',' + i + ')">🗑</button></div>';
+  }).join('');
+  var credsHTML = creds.map(function(c, i) {
+    return '<div class="cred-item"><span>📎</span><span class="cred-text">' + c + '</span><button class="cred-del" onclick="delCred(' + t.id + ',' + i + ')">✕</button></div>';
+  }).join('');
+  var transportHTML = transport.length > 0
+    ? transport.map(function(p) { return '<span class="t-tag selected">' + p + '</span>'; }).join('')
+    : '<span style="color:#a89cc8">—</span>';
+  return '<div class="page' + (idx===0?' active':'') + '" id="page-' + t.id + '">' +
+    '<div class="card">' +
+      '<div class="card-header"><div class="card-title"><h2>第' + (idx+1) + '天(' + (t.day||'') + ')</h2><span class="badge ' + chipClass(t.city) + '">' + (t.city||'') + '</span></div>' +
+      '<div class="card-actions"><button class="icon-btn" onclick="openEditModal(' + t.id + ')">✏️</button><button class="icon-btn" onclick="delDay(' + t.id + ')">🗑️</button></div></div>' +
+      '<div class="info-row"><span class="lbl">目的地</span><span class="val">' + (t.dest||'—') + ' 📍</span></div>' +
+      '<div class="info-row"><span class="lbl">行程</span><span class="val">' + (t.itin||'—') + '</span></div>' +
+      '<div class="info-row"><span class="lbl">住宿</span><span class="val">' + (t.hotel||'—') + ' 📍</span></div>' +
+      '<div class="info-row"><span class="lbl">費用</span><span class="val"><span class="price-badge">💴 ' + (t.note||'—') + '</span></span></div>' +
+      '<div class="info-row"><span class="lbl">交通</span><div class="val"><div class="transport-wrap">' + transportHTML + '</div></div></div>' +
+      '<hr class="divider">' +
+      '<div class="map-row"><div class="map-lbl">📍 當日行程地點</div><button class="map-btn" onclick="openMap(\'' + (t.dest||t.city||'仙台').replace(/'/g,"\\'") + '\')">Google Maps 路線 ↗</button></div>' +
+      '<div class="stops">' + stopsHTML + '<button class="add-btn" onclick="currentId=' + t.id + ';openStopModal()">＋ 新增地點</button></div>' +
+      (t.memo ? '<div class="note-box"><b>📝 備注</b>' + t.memo + '</div>' : '') +
+      '<div class="creds-section"><div class="creds-lbl">憑證</div>' + credsHTML + '<button class="add-btn" onclick="currentId=' + t.id + ';openCredModal()">＋ 新增憑證</button></div>' +
+    '</div></div>';
 }
 
 function switchTo(id) {
   currentId = id;
-  document.querySelectorAll('.date-tab').forEach(el => el.classList.remove('active'));
-  document.querySelectorAll('.city-cell').forEach(el => el.classList.remove('active'));
-  document.querySelectorAll('.page').forEach(el => el.classList.remove('active'));
-  document.getElementById(`tab-${id}`)?.classList.add('active');
-  document.getElementById(`chip-${id}`)?.classList.add('active');
-  document.getElementById(`page-${id}`)?.classList.add('active');
+  document.querySelectorAll('.date-tab').forEach(function(el){ el.classList.remove('active'); });
+  document.querySelectorAll('.city-cell').forEach(function(el){ el.classList.remove('active'); });
+  document.querySelectorAll('.page').forEach(function(el){ el.classList.remove('active'); });
+  var tab = document.getElementById('tab-' + id);
+  var chip = document.getElementById('chip-' + id);
+  var page = document.getElementById('page-' + id);
+  if (tab) tab.classList.add('active');
+  if (chip) chip.classList.add('active');
+  if (page) page.classList.add('active');
 }
 
 function openMap(dest) {
-  window.open(`https://www.google.com/maps/search/${encodeURIComponent(dest+' 日本')}`, '_blank');
+  window.open('https://www.google.com/maps/search/' + encodeURIComponent(dest + ' 日本'), '_blank');
 }
 
-document.getElementById('tpills').addEventListener('click', e => {
-  const p = e.target.closest('.t-pill');
+document.getElementById('tpills').addEventListener('click', function(e) {
+  var p = e.target.closest('.t-pill');
   if (p) p.classList.toggle('on');
 });
 
@@ -344,13 +304,13 @@ function openDayModal() {
   editingId = null;
   document.getElementById('dayModalTitle').textContent = '📅 新增行程天數';
   document.getElementById('saveDayBtn').textContent = '儲存行程';
-  ['d-date','d-week','d-city','d-sub','d-dest','d-itin','d-hotel','d-note','d-memo','d-transport-custom'].forEach(id => document.getElementById(id).value='');
-  document.querySelectorAll('.t-pill').forEach(p => p.classList.remove('on'));
+  ['d-date','d-week','d-city','d-sub','d-dest','d-itin','d-hotel','d-note','d-memo','d-transport-custom'].forEach(function(id){ document.getElementById(id).value=''; });
+  document.querySelectorAll('.t-pill').forEach(function(p){ p.classList.remove('on'); });
   document.getElementById('dayOverlay').classList.add('open');
 }
 
 function openEditModal(id) {
-  const t = trips.find(x => x.id === id);
+  var t = trips.find(function(x){ return x.id===id; });
   if (!t) return;
   editingId = id;
   document.getElementById('dayModalTitle').textContent = '✏️ 編輯行程';
@@ -364,24 +324,21 @@ function openEditModal(id) {
   document.getElementById('d-hotel').value = t.hotel||'';
   document.getElementById('d-note').value = t.note||'';
   document.getElementById('d-memo').value = t.memo||'';
-  const transport = t.transport ? t.transport.split(',').filter(x=>x) : [];
-  const presets = ['✈️ 飛機','🚃 電車','🚌 巴士','🚕 計程車','🚶 步行','🚗 自駕','🚢 船'];
-  const customs = transport.filter(x => !presets.includes(x));
-  document.getElementById('d-transport-custom').value = customs.join('、');
-  document.querySelectorAll('.t-pill').forEach(p => {
-    p.classList.toggle('on', transport.includes(p.dataset.v));
-  });
+  var transport = t.transport ? t.transport.split(',').filter(function(x){ return x; }) : [];
+  var presets = ['✈️ 飛機','🚃 電車','🚌 巴士','🚕 計程車','🚶 步行','🚗 自駕','🚢 船'];
+  document.getElementById('d-transport-custom').value = transport.filter(function(x){ return presets.indexOf(x)===-1; }).join('、');
+  document.querySelectorAll('.t-pill').forEach(function(p){ p.classList.toggle('on', transport.indexOf(p.dataset.v)!==-1); });
   document.getElementById('dayOverlay').classList.add('open');
 }
 
 async function saveDay() {
-  const btn = document.getElementById('saveDayBtn');
+  var btn = document.getElementById('saveDayBtn');
   btn.disabled = true; btn.textContent = '儲存中...';
   try {
-    const selected = [...document.querySelectorAll('.t-pill.on')].map(p=>p.dataset.v);
-    const custom = document.getElementById('d-transport-custom').value.trim();
-    if (custom) custom.split(/[、,，]/).forEach(x => { if(x.trim()) selected.push(x.trim()); });
-    const body = {
+    var selected = Array.from(document.querySelectorAll('.t-pill.on')).map(function(p){ return p.dataset.v; });
+    var custom = document.getElementById('d-transport-custom').value.trim();
+    if (custom) custom.split(/[、,，]/).forEach(function(x){ if(x.trim()) selected.push(x.trim()); });
+    var body = {
       date: document.getElementById('d-date').value,
       day: document.getElementById('d-week').value,
       city: document.getElementById('d-city').value,
@@ -394,26 +351,26 @@ async function saveDay() {
       memo: document.getElementById('d-memo').value,
     };
     if (editingId) {
-      await api('PATCH', `/rest/v1/trips?id=eq.${editingId}`, body);
+      await api('PATCH', '/rest/v1/trips?id=eq.' + editingId, body);
       toast('✅ 行程已更新！');
     } else {
       body.stops = []; body.creds = []; body.sort_order = trips.length;
       await api('POST', '/rest/v1/trips', body);
       toast('✅ 行程已新增！');
     }
+    var sid = editingId;
     closeOverlay('dayOverlay');
-    const sid = editingId;
     await load();
     if (sid) switchTo(sid);
     else if (trips.length > 0) switchTo(trips[trips.length-1].id);
-  } catch(e) { toast('⚠️ 儲存失敗'); console.error(e); }
+  } catch(e) { toast('⚠️ 儲存失敗: ' + e.message); }
   btn.disabled = false;
   btn.textContent = editingId ? '更新行程' : '儲存行程';
 }
 
 async function delDay(id) {
   if (!confirm('確定刪除這天行程？')) return;
-  await api('DELETE', `/rest/v1/trips?id=eq.${id}`);
+  await api('DELETE', '/rest/v1/trips?id=eq.' + id);
   toast('🗑 行程已刪除');
   await load();
 }
@@ -426,24 +383,24 @@ function openStopModal() {
 }
 
 async function saveStop() {
-  const trip = trips.find(t=>t.id===currentId);
+  var trip = trips.find(function(t){ return t.id===currentId; });
   if (!trip) return;
-  const place = document.getElementById('s-place').value.trim();
+  var place = document.getElementById('s-place').value.trim();
   if (!place) { toast('請輸入地點名稱'); return; }
-  const stops = [...(Array.isArray(trip.stops)?trip.stops:[])];
-  stops.push({ time: document.getElementById('s-time').value, place, note: document.getElementById('s-note').value.trim() });
-  await api('PATCH', `/rest/v1/trips?id=eq.${currentId}`, { stops });
+  var stops = Array.isArray(trip.stops) ? trip.stops.slice() : [];
+  stops.push({ time: document.getElementById('s-time').value, place: place, note: document.getElementById('s-note').value.trim() });
+  await api('PATCH', '/rest/v1/trips?id=eq.' + currentId, { stops: stops });
   closeOverlay('stopOverlay');
   toast('📍 地點已新增！');
-  const sid = currentId;
+  var sid = currentId;
   await load(); switchTo(sid);
 }
 
 async function delStop(tripId, idx) {
-  const trip = trips.find(t=>t.id===tripId);
+  var trip = trips.find(function(t){ return t.id===tripId; });
   if (!trip) return;
-  const stops = [...(trip.stops||[])]; stops.splice(idx,1);
-  await api('PATCH', `/rest/v1/trips?id=eq.${tripId}`, { stops });
+  var stops = (trip.stops||[]).slice(); stops.splice(idx,1);
+  await api('PATCH', '/rest/v1/trips?id=eq.' + tripId, { stops: stops });
   toast('🗑 地點已刪除');
   await load(); switchTo(tripId);
 }
@@ -454,31 +411,32 @@ function openCredModal() {
 }
 
 async function saveCred() {
-  const trip = trips.find(t=>t.id===currentId);
+  var trip = trips.find(function(t){ return t.id===currentId; });
   if (!trip) return;
-  const text = document.getElementById('c-text').value.trim();
+  var text = document.getElementById('c-text').value.trim();
   if (!text) { toast('請輸入憑證說明'); return; }
-  const creds = [...(Array.isArray(trip.creds)?trip.creds:[])];
+  var creds = Array.isArray(trip.creds) ? trip.creds.slice() : [];
   creds.push(text);
-  await api('PATCH', `/rest/v1/trips?id=eq.${currentId}`, { creds });
+  await api('PATCH', '/rest/v1/trips?id=eq.' + currentId, { creds: creds });
   closeOverlay('credOverlay');
   toast('📎 憑證已新增！');
-  const sid = currentId;
+  var sid = currentId;
   await load(); switchTo(sid);
 }
 
 async function delCred(tripId, idx) {
-  const trip = trips.find(t=>t.id===tripId);
+  var trip = trips.find(function(t){ return t.id===tripId; });
   if (!trip) return;
-  const creds = [...(trip.creds||[])]; creds.splice(idx,1);
-  await api('PATCH', `/rest/v1/trips?id=eq.${tripId}`, { creds });
+  var creds = (trip.creds||[]).slice(); creds.splice(idx,1);
+  await api('PATCH', '/rest/v1/trips?id=eq.' + tripId, { creds: creds });
   toast('🗑 憑證已刪除');
   await load(); switchTo(tripId);
 }
 
 function closeOverlay(id) { document.getElementById(id).classList.remove('open'); }
-document.querySelectorAll('.overlay').forEach(o => o.addEventListener('click', e => { if(e.target===o) o.classList.remove('open'); }));
-
+document.querySelectorAll('.overlay').forEach(function(o){
+  o.addEventListener('click', function(e){ if(e.target===o) o.classList.remove('open'); });
+});
 load();
 </script>
 
