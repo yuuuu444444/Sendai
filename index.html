@@ -16,21 +16,26 @@ body { font-family: 'Noto Sans TC', sans-serif; background: #f5f0ff; color: #2d1
 .dot { width: 7px; height: 7px; background: #52c41a; border-radius: 50%; display: inline-block; }
 .btn-new { background: #1a2d6e; color: white; border: none; border-radius: 10px; padding: 8px 12px; font-size: 12px; font-weight: 700; cursor: pointer; font-family: 'Noto Sans TC', sans-serif; }
 
+/* 日期框框 */
 .date-scroll { overflow-x: auto; scrollbar-width: none; padding: 10px 16px 0; }
 .date-scroll::-webkit-scrollbar { display: none; }
 .date-row { display: flex; gap: 8px; padding-bottom: 10px; }
-.date-tab { flex-shrink: 0; width: 58px; padding: 6px 0; text-align: center; cursor: pointer; border: 2px solid #1a2d6e; border-radius: 12px; background: white; transition: all 0.15s; }
+.date-tab {
+flex-shrink: 0; width: 62px; padding: 6px 4px; text-align: center; cursor: pointer;
+border: 2px solid #9b6dff; border-radius: 12px; background: #f0ebff; transition: all 0.15s;
+}
 .date-tab.active { background: #ffe0ec; border-color: #ffb6cc; }
-.tab-date { font-size: 10px; color: #1a2d6e; }
+.tab-date { font-size: 10px; color: #9b6dff; }
 .date-tab.active .tab-date { color: #c0396e; }
-.tab-num { font-size: 22px; font-weight: 900; font-family: ‘Zen Kaku Gothic New’, sans-serif; color: #1a2d6e; line-height: 1.1; }
+.tab-num { font-size: 18px; font-weight: 900; font-family: ‘Zen Kaku Gothic New’, sans-serif; color: #9b6dff; line-height: 1.2; }
 .date-tab.active .tab-num { color: #c0396e; }
-.tab-weekday { font-size: 10px; color: #1a2d6e; }
+.tab-weekday { font-size: 10px; color: #9b6dff; }
 .date-tab.active .tab-weekday { color: #c0396e; }
 
+/* 城市列 */
 .city-row { display: flex; overflow-x: auto; scrollbar-width: none; background: white; border-top: 1px solid #e8e0ff; border-bottom: 1px solid #e8e0ff; padding: 0 8px; }
 .city-row::-webkit-scrollbar { display: none; }
-.city-cell { flex-shrink: 0; width: 66px; padding: 5px 4px; text-align: center; cursor: pointer; }
+.city-cell { flex-shrink: 0; width: 70px; padding: 5px 4px; text-align: center; cursor: pointer; }
 .city-chip { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 11px; font-weight: 700; }
 .city-sub { font-size: 9px; color: #a89cc8; margin-top: 1px; }
 .chip-purple { background: #ede8ff; color: #6c3fc5; }
@@ -52,9 +57,12 @@ body { font-family: 'Noto Sans TC', sans-serif; background: #f5f0ff; color: #2d1
 .lbl { color: #a89cc8; font-size: 12px; min-width: 36px; padding-top: 1px; }
 .val { flex: 1; font-size: 13px; font-weight: 500; line-height: 1.5; color: #2d1b69; }
 .price-badge { background: #fff8e1; color: #c57a00; padding: 2px 8px; border-radius: 8px; font-size: 12px; font-weight: 700; display: inline-block; }
+
+/* 交通工具 - 選中：淡粉邊框+淡粉背景 */
 .transport-wrap { display: flex; flex-wrap: wrap; gap: 6px; }
-.t-tag { padding: 5px 12px; border-radius: 20px; font-size: 13px; font-weight: 500; border: 1.5px solid #1a2d6e; background: white; color: #1a2d6e; display: inline-block; }
-.t-tag.selected { background: #1a2d6e; color: white; border-color: #1a2d6e; }
+.t-tag { padding: 5px 12px; border-radius: 20px; font-size: 13px; font-weight: 500; border: 1.5px solid #d4c8ff; background: white; color: #2d1b69; display: inline-block; }
+.t-tag.selected { background: #ffe0ec; color: #c0396e; border-color: #ffb6cc; }
+
 .divider { border: none; border-top: 1px solid #e8e0ff; margin: 14px 0; }
 .map-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
 .map-lbl { font-size: 12px; color: #a89cc8; }
@@ -83,18 +91,18 @@ body { font-family: 'Noto Sans TC', sans-serif; background: #f5f0ff; color: #2d1
 .field { margin-bottom: 11px; }
 .field label { display: block; font-size: 11px; color: #a89cc8; margin-bottom: 4px; font-weight: 700; }
 .field input, .field textarea { width: 100%; padding: 10px 12px; border: 1.5px solid #e8e0ff; border-radius: 10px; font-size: 14px; font-family: ‘Noto Sans TC’, sans-serif; outline: none; color: #2d1b69; background: white; }
-.field input:focus, .field textarea:focus { border-color: #1a2d6e; }
+.field input:focus, .field textarea:focus { border-color: #9b6dff; }
 .field textarea { height: 72px; resize: none; }
 .t-pills { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
-.t-pill { padding: 6px 12px; border-radius: 20px; border: 1.5px solid #1a2d6e; font-size: 13px; cursor: pointer; user-select: none; background: white; color: #1a2d6e; display: inline-block; font-family: ‘Noto Sans TC’, sans-serif; }
-.t-pill.on { background: #1a2d6e; color: white; }
+.t-pill { padding: 6px 12px; border-radius: 20px; border: 1.5px solid #d4c8ff; font-size: 13px; cursor: pointer; user-select: none; background: white; color: #2d1b69; display: inline-block; font-family: ‘Noto Sans TC’, sans-serif; }
+.t-pill.on { background: #ffe0ec; color: #c0396e; border-color: #ffb6cc; }
 .modal-btns { display: flex; gap: 10px; margin-top: 16px; }
 .btn-cancel { flex: 1; padding: 12px; border: 1.5px solid #e8e0ff; border-radius: 12px; background: none; font-size: 14px; font-weight: 700; cursor: pointer; font-family: ‘Noto Sans TC’, sans-serif; color: #2d1b69; }
 .btn-save { flex: 2; padding: 12px; background: #1a2d6e; color: white; border: none; border-radius: 12px; font-size: 14px; font-weight: 700; cursor: pointer; font-family: ‘Noto Sans TC’, sans-serif; }
 .btn-save:disabled { opacity: 0.5; }
 .fab { position: fixed; bottom: 24px; right: 20px; background: #1a2d6e; color: white; border: none; border-radius: 50px; padding: 13px 18px; font-size: 14px; font-weight: 700; cursor: pointer; font-family: ‘Noto Sans TC’, sans-serif; box-shadow: 0 4px 20px rgba(26,45,110,0.4); z-index: 99; display: none; }
 .loading { text-align: center; padding: 50px 20px; color: #a89cc8; }
-.spinner { width: 28px; height: 28px; border: 3px solid #e8e0ff; border-top-color: #1a2d6e; border-radius: 50%; animation: spin 0.8s linear infinite; margin: 0 auto 12px; }
+.spinner { width: 28px; height: 28px; border: 3px solid #e8e0ff; border-top-color: #9b6dff; border-radius: 50%; animation: spin 0.8s linear infinite; margin: 0 auto 12px; }
 @keyframes spin { to { transform: rotate(360deg); } }
 .empty { text-align: center; padding: 60px 20px; color: #a89cc8; }
 .empty .emoji { font-size: 48px; margin-bottom: 12px; }
@@ -229,7 +237,7 @@ function renderAll() {
     var p = (t.date || '').split('/');
     return '<div class="date-tab' + (i===0?' active':'') + '" id="tab-' + t.id + '" onclick="switchTo(' + t.id + ')">' +
       '<div class="tab-date">' + (p[0]||'') + '/' + (p[1]||'') + '</div>' +
-      '<div class="tab-num">' + (p[1] || String(i+1).padStart(2,'0')) + '</div>' +
+      '<div class="tab-num">Day' + (i+1) + '</div>' +
       '<div class="tab-weekday">' + (t.day||'') + '</div>' +
       '</div>';
   }).join('');
@@ -263,7 +271,7 @@ function renderPage(t, idx) {
     : '<span style="color:#a89cc8">—</span>';
   return '<div class="page' + (idx===0?' active':'') + '" id="page-' + t.id + '">' +
     '<div class="card">' +
-      '<div class="card-header"><div class="card-title"><h2>第' + (idx+1) + '天(' + (t.day||'') + ')</h2><span class="badge ' + chipClass(t.city) + '">' + (t.city||'') + '</span></div>' +
+      '<div class="card-header"><div class="card-title"><h2>Day ' + (idx+1) + ' (' + (t.day||'') + ')</h2><span class="badge ' + chipClass(t.city) + '">' + (t.city||'') + '</span></div>' +
       '<div class="card-actions"><button class="icon-btn" onclick="openEditModal(' + t.id + ')">✏️</button><button class="icon-btn" onclick="delDay(' + t.id + ')">🗑️</button></div></div>' +
       '<div class="info-row"><span class="lbl">目的地</span><span class="val">' + (t.dest||'—') + ' 📍</span></div>' +
       '<div class="info-row"><span class="lbl">行程</span><span class="val">' + (t.itin||'—') + '</span></div>' +
