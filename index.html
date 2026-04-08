@@ -15,7 +15,6 @@ body { font-family: 'Noto Sans TC', sans-serif; background: #f5f0ff; color: #2d1
 .connected { display: flex; align-items: center; gap: 4px; font-size: 11px; color: #52c41a; margin-top: 2px; }
 .dot { width: 7px; height: 7px; background: #52c41a; border-radius: 50%; display: inline-block; }
 .btn-new { background: #1a2d6e; color: white; border: none; border-radius: 10px; padding: 8px 12px; font-size: 12px; font-weight: 700; cursor: pointer; font-family: 'Noto Sans TC', sans-serif; }
-
 .date-scroll { overflow-x: auto; scrollbar-width: none; padding: 10px 16px 0; }
 .date-scroll::-webkit-scrollbar { display: none; }
 .date-row { display: flex; gap: 8px; padding-bottom: 10px; }
@@ -23,11 +22,10 @@ body { font-family: 'Noto Sans TC', sans-serif; background: #f5f0ff; color: #2d1
 .date-tab.active { background: #ffe0ec; border-color: #ffb6cc; }
 .tab-date { font-size: 10px; color: #9b6dff; }
 .date-tab.active .tab-date { color: #c0396e; }
-.tab-num { font-size: 15px; font-weight: 900; font-family: ‘Zen Kaku Gothic New’, sans-serif; color: #9b6dff; line-height: 1.3; }
+.tab-num { font-size: 15px; font-weight: 900; font-family: 'Zen Kaku Gothic New', sans-serif; color: #9b6dff; line-height: 1.3; }
 .date-tab.active .tab-num { color: #c0396e; }
 .tab-weekday { font-size: 10px; color: #9b6dff; }
 .date-tab.active .tab-weekday { color: #c0396e; }
-
 .city-row { display: flex; overflow-x: auto; scrollbar-width: none; background: white; border-top: 1px solid #e8e0ff; border-bottom: 1px solid #e8e0ff; padding: 0 8px; }
 .city-row::-webkit-scrollbar { display: none; }
 .city-cell { flex-shrink: 0; width: 70px; padding: 5px 4px; text-align: center; cursor: pointer; }
@@ -38,13 +36,12 @@ body { font-family: 'Noto Sans TC', sans-serif; background: #f5f0ff; color: #2d1
 .chip-blue { background: #e8f0ff; color: #1a2d6e; }
 .chip-green { background: #e8f5ee; color: #2d7a4f; }
 .chip-orange { background: #fff0e0; color: #c57a00; }
-
 .page { display: none; padding: 14px; }
 .page.active { display: block; }
 .card { background: white; border-radius: 16px; padding: 16px; margin-bottom: 14px; box-shadow: 0 2px 12px rgba(100,60,200,0.08); }
 .card-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
 .card-title { display: flex; align-items: center; gap: 8px; }
-.card-title h2 { font-size: 17px; font-weight: 900; font-family: ‘Zen Kaku Gothic New’, sans-serif; color: #2d1b69; }
+.card-title h2 { font-size: 17px; font-weight: 900; font-family: 'Zen Kaku Gothic New', sans-serif; color: #2d1b69; }
 .badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 11px; font-weight: 700; }
 .card-actions { display: flex; gap: 2px; }
 .icon-btn { background: none; border: none; font-size: 16px; cursor: pointer; opacity: 0.5; padding: 4px; }
@@ -58,38 +55,47 @@ body { font-family: 'Noto Sans TC', sans-serif; background: #f5f0ff; color: #2d1
 .divider { border: none; border-top: 1px solid #e8e0ff; margin: 14px 0; }
 .map-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
 .map-lbl { font-size: 12px; color: #a89cc8; }
-.map-btn { background: #e8f0ff; color: #1a2d6e; border: none; border-radius: 8px; padding: 6px 12px; font-size: 12px; font-weight: 700; cursor: pointer; font-family: ‘Noto Sans TC’, sans-serif; }
+.map-btn { background: #e8f0ff; color: #1a2d6e; border: none; border-radius: 8px; padding: 6px 12px; font-size: 12px; font-weight: 700; cursor: pointer; font-family: 'Noto Sans TC', sans-serif; }
 
 /* 時間軸 */
 .timeline { display: flex; flex-direction: column; }
-.stop-item { display: flex; gap: 10px; padding: 8px 0; position: relative; }
-.stop-left { display: flex; flex-direction: column; align-items: center; width: 28px; flex-shrink: 0; }
-.stop-num { width: 28px; height: 28px; background: #1a2d6e; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; flex-shrink: 0; }
-.stop-line { width: 2px; flex: 1; background: #e8e0ff; margin: 3px 0; min-height: 20px; }
-.stop-right { flex: 1; padding-bottom: 4px; }
-.stop-time { font-size: 11px; color: #a89cc8; margin-bottom: 2px; }
-.stop-place { font-size: 14px; font-weight: 700; color: #2d1b69; }
-.stop-note { font-size: 11px; color: #a89cc8; margin-top: 2px; }
-.stop-del { background: none; border: none; font-size: 13px; cursor: pointer; opacity: 0.4; padding: 2px 4px; }
+.tl-stop { display: flex; gap: 10px; }
+.tl-left { display: flex; flex-direction: column; align-items: center; width: 28px; flex-shrink: 0; }
+.tl-num { width: 28px; height: 28px; background: #1a2d6e; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; }
+.tl-vline { width: 2px; background: #e8e0ff; flex: 1; min-height: 16px; }
+.tl-right { flex: 1; padding-bottom: 6px; }
+.tl-time { font-size: 11px; color: #a89cc8; }
+.tl-place { font-size: 14px; font-weight: 700; color: #2d1b69; margin: 2px 0; }
+.tl-note { font-size: 11px; color: #a89cc8; }
+.tl-del { background: none; border: none; font-size: 12px; color: #a89cc8; cursor: pointer; padding: 2px; }
 
 /* 交通行 */
-.transit-item { display: flex; gap: 10px; padding: 2px 0; }
-.transit-left { width: 28px; display: flex; justify-content: center; flex-shrink: 0; }
-.transit-line-wrap { width: 2px; background: #e8e0ff; position: relative; }
-.transit-right { flex: 1; display: flex; align-items: center; gap: 6px; padding: 4px 0; }
-.transit-badge { background: #f5f0ff; border: 1px solid #d4c8ff; border-radius: 20px; padding: 3px 10px; font-size: 11px; color: #6c3fc5; display: inline-flex; align-items: center; gap: 4px; }
-.transit-del { background: none; border: none; font-size: 12px; cursor: pointer; opacity: 0.4; }
-.transit-arrive { font-size: 11px; color: #a89cc8; margin-left: auto; }
+.tl-transit { display: flex; gap: 10px; padding: 2px 0; }
+.tl-transit-left { width: 28px; display: flex; justify-content: center; }
+.tl-transit-line { width: 2px; background: #e8e0ff; }
+.tl-transit-right { flex: 1; display: flex; align-items: center; gap: 6px; padding: 3px 0; flex-wrap: wrap; }
+.transit-pill { background: #f0ebff; border: 1px solid #d4c8ff; border-radius: 20px; padding: 3px 10px; font-size: 11px; color: #6c3fc5; }
+.transit-info { font-size: 11px; color: #a89cc8; }
+.transit-del { background: none; border: none; font-size: 12px; color: #a89cc8; cursor: pointer; margin-left: auto; }
 
-.add-stop-btn { border: 2px dashed #d4c8ff; background: none; border-radius: 10px; padding: 10px; width: 100%; color: #a89cc8; font-size: 13px; cursor: pointer; font-family: ‘Noto Sans TC’, sans-serif; margin-top: 6px; }
+.add-stop-btn { border: 2px dashed #d4c8ff; background: none; border-radius: 10px; padding: 10px; width: 100%; color: #a89cc8; font-size: 13px; cursor: pointer; font-family: ‘Noto Sans TC’, sans-serif; margin-top: 8px; }
 .note-box { background: #fffbf0; border-left: 3px solid #f4a261; border-radius: 0 10px 10px 0; padding: 10px 12px; margin-top: 12px; font-size: 12px; color: #7a5c00; line-height: 1.6; }
 .note-box b { display: block; color: #e76f51; font-size: 13px; margin-bottom: 3px; }
+
+/* 憑證 */
 .creds-section { margin-top: 14px; }
 .creds-lbl { font-size: 12px; color: #a89cc8; margin-bottom: 7px; }
-.cred-item { display: flex; align-items: center; gap: 10px; background: #f5f0ff; border-radius: 10px; padding: 10px 12px; margin-bottom: 6px; }
-.cred-text { flex: 1; font-size: 13px; font-weight: 500; color: #2d1b69; }
-.cred-del { background: none; border: none; font-size: 13px; cursor: pointer; opacity: 0.4; }
+.cred-card { background: #f5f0ff; border-radius: 12px; padding: 12px; margin-bottom: 8px; }
+.cred-top { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+.cred-icon { font-size: 20px; }
+.cred-title { flex: 1; font-size: 13px; font-weight: 700; color: #2d1b69; }
+.cred-type { background: #1a2d6e; color: white; padding: 2px 8px; border-radius: 20px; font-size: 10px; font-weight: 700; }
+.cred-del { background: none; border: none; font-size: 14px; cursor: pointer; opacity: 0.4; }
+.cred-url { font-size: 11px; color: #6c3fc5; margin-bottom: 4px; word-break: break-all; }
+.cred-note { font-size: 12px; color: #2d1b69; }
+.cred-img { width: 100%; border-radius: 8px; margin-top: 6px; max-height: 120px; object-fit: cover; }
 
+/* Modal */
 .overlay { display: none; position: fixed; inset: 0; background: rgba(45,27,105,0.4); z-index: 200; align-items: flex-end; }
 .overlay.open { display: flex; }
 .modal { background: white; border-radius: 20px 20px 0 0; padding: 20px 16px 40px; width: 100%; max-height: 88vh; overflow-y: auto; }
@@ -100,8 +106,15 @@ body { font-family: 'Noto Sans TC', sans-serif; background: #f5f0ff; color: #2d1
 .field input:focus, .field textarea:focus { border-color: #9b6dff; }
 .field textarea { height: 72px; resize: none; }
 .t-pills { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
-.t-pill { padding: 6px 12px; border-radius: 20px; border: 1.5px solid #d4c8ff; font-size: 13px; cursor: pointer; user-select: none; background: white; color: #2d1b69; display: inline-block; font-family: ‘Noto Sans TC’, sans-serif; }
+.t-pill { padding: 6px 12px; border-radius: 20px; border: 1.5px solid #d4c8ff; font-size: 12px; cursor: pointer; user-select: none; background: white; color: #2d1b69; display: inline-block; font-family: ‘Noto Sans TC’, sans-serif; }
 .t-pill.on { background: #ffe0ec; color: #c0396e; border-color: #ffb6cc; }
+.t-pill.on-blue { background: #1a2d6e; color: white; border-color: #1a2d6e; }
+
+/* 憑證類型選擇 */
+.cred-types { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
+.cred-type-btn { padding: 6px 12px; border-radius: 20px; border: 1.5px solid #d4c8ff; font-size: 12px; cursor: pointer; background: white; color: #2d1b69; font-family: ‘Noto Sans TC’, sans-serif; }
+.cred-type-btn.on { background: #1a2d6e; color: white; border-color: #1a2d6e; }
+
 .modal-btns { display: flex; gap: 10px; margin-top: 16px; }
 .btn-cancel { flex: 1; padding: 12px; border: 1.5px solid #e8e0ff; border-radius: 12px; background: none; font-size: 14px; font-weight: 700; cursor: pointer; font-family: ‘Noto Sans TC’, sans-serif; color: #2d1b69; }
 .btn-save { flex: 2; padding: 12px; background: #1a2d6e; color: white; border: none; border-radius: 12px; font-size: 14px; font-weight: 700; cursor: pointer; font-family: ‘Noto Sans TC’, sans-serif; }
@@ -114,6 +127,7 @@ body { font-family: 'Noto Sans TC', sans-serif; background: #f5f0ff; color: #2d1
 .empty .emoji { font-size: 48px; margin-bottom: 12px; }
 .toast { position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%); background: #1a2d6e; color: white; padding: 10px 20px; border-radius: 50px; font-size: 13px; font-weight: 700; z-index: 300; opacity: 0; transition: opacity 0.3s; pointer-events: none; white-space: nowrap; }
 .toast.show { opacity: 1; }
+.section-title { font-size: 13px; font-weight: 700; color: #2d1b69; margin: 14px 0 8px; padding-top: 14px; border-top: 1px solid #e8e0ff; }
 </style>
 
 </head>
@@ -170,26 +184,23 @@ body { font-family: 'Noto Sans TC', sans-serif; background: #f5f0ff; color: #2d1
 
 <div class="overlay" id="stopOverlay">
   <div class="modal">
-    <div class="modal-title" id="stopModalTitle">📍 新增地點</div>
-    <div class="field"><label>抵達時間（例：10:00）</label><input id="s-time" type="time"></div>
+    <div class="modal-title">📍 新增地點</div>
+    <div class="field"><label>抵達時間</label><input id="s-time" type="time"></div>
     <div class="field"><label>地點名稱</label><input id="s-place" placeholder="瑞巖寺"></div>
-    <div class="field"><label>停留時間（例：2小時）</label><input id="s-duration" placeholder="2小時30分鐘"></div>
     <div class="field"><label>備注（可選）</label><input id="s-note" placeholder="門票 NT$200、必拍景點"></div>
-    <div style="margin-top:14px;padding-top:14px;border-top:1px solid #e8e0ff">
-      <div style="font-size:13px;font-weight:700;color:#2d1b69;margin-bottom:10px">🚗 前往下一站的交通</div>
-      <div class="field"><label>交通方式</label>
-        <div class="t-pills" id="transitPills" style="margin-bottom:8px">
-          <span class="t-pill" data-v="🚃 電車">🚃 電車</span>
-          <span class="t-pill" data-v="🚌 巴士">🚌 巴士</span>
-          <span class="t-pill" data-v="🚕 計程車">🚕 計程車</span>
-          <span class="t-pill" data-v="🚶 步行">🚶 步行</span>
-          <span class="t-pill" data-v="🚗 自駕">🚗 自駕</span>
-          <span class="t-pill" data-v="✈️ 飛機">✈️ 飛機</span>
-        </div>
+    <div class="section-title">🚗 前往下一站的交通（可選）</div>
+    <div class="field"><label>交通方式</label>
+      <div class="t-pills" id="transitPills">
+        <span class="t-pill" data-v="🚃 電車">🚃 電車</span>
+        <span class="t-pill" data-v="🚌 巴士">🚌 巴士</span>
+        <span class="t-pill" data-v="🚕 計程車">🚕 計程車</span>
+        <span class="t-pill" data-v="🚶 步行">🚶 步行</span>
+        <span class="t-pill" data-v="🚗 自駕">🚗 自駕</span>
+        <span class="t-pill" data-v="✈️ 飛機">✈️ 飛機</span>
       </div>
-      <div class="field"><label>所需時間（例：22分鐘）</label><input id="s-transit-time" placeholder="22分鐘"></div>
-      <div class="field"><label>抵達時間（例：10:22）</label><input id="s-transit-arrive" placeholder="10:22"></div>
     </div>
+    <div class="field"><label>所需時間（例：25分鐘）</label><input id="s-transit-dur" placeholder="25分鐘"></div>
+    <div class="field"><label>抵達下一站時間（例：10:25）</label><input id="s-transit-arr" placeholder="10:25"></div>
     <div class="modal-btns">
       <button class="btn-cancel" onclick="closeOverlay('stopOverlay')">取消</button>
       <button class="btn-save" onclick="saveStop()">新增地點</button>
@@ -202,7 +213,20 @@ body { font-family: 'Noto Sans TC', sans-serif; background: #f5f0ff; color: #2d1
 <div class="overlay" id="credOverlay">
   <div class="modal">
     <div class="modal-title">📎 新增憑證</div>
-    <div class="field"><label>說明</label><input id="c-text" placeholder="航班：星宇航空 JX800"></div>
+    <div class="field"><label>名稱（例：相鐵Fresa Inn大阪難波）</label><input id="c-title" placeholder="飯店名稱、航班號..."></div>
+    <div class="field"><label>類型</label>
+      <div class="cred-types" id="credTypes">
+        <button class="cred-type-btn" data-v="✈️ 機票" data-icon="✈️">✈️ 機票</button>
+        <button class="cred-type-btn" data-v="🏨 訂房" data-icon="🏨">🏨 訂房</button>
+        <button class="cred-type-btn" data-v="🍽 餐廳" data-icon="🍽">🍽 餐廳</button>
+        <button class="cred-type-btn" data-v="🎫 景點" data-icon="🎫">🎫 景點</button>
+        <button class="cred-type-btn" data-v="🚃 交通" data-icon="🚃">🚃 交通</button>
+        <button class="cred-type-btn" data-v="📄 文件" data-icon="📄">📄 文件</button>
+        <button class="cred-type-btn" data-v="📌 其他" data-icon="📌">📌 其他</button>
+      </div>
+    </div>
+    <div class="field"><label>網址 URL（可選）</label><input id="c-url" placeholder="https://..."></div>
+    <div class="field"><label>說明文字</label><textarea id="c-note" placeholder="注意事項、確認號碼..."></textarea></div>
     <div class="modal-btns">
       <button class="btn-cancel" onclick="closeOverlay('credOverlay')">取消</button>
       <button class="btn-save" onclick="saveCred()">新增</button>
@@ -285,33 +309,25 @@ function renderPage(t, idx) {
   var creds = Array.isArray(t.creds) ? t.creds : [];
   var transport = t.transport ? t.transport.split(',').filter(function(x){ return x.trim(); }) : [];
 
-  // 時間軸 HTML
   var timelineHTML = '';
   stops.forEach(function(s, i) {
     var isLast = i === stops.length - 1;
-    timelineHTML += '<div class="stop-item">' +
-      '<div class="stop-left">' +
-        '<div class="stop-num">' + (i+1) + '</div>' +
-        (!isLast ? '<div class="stop-line"></div>' : '') +
-      '</div>' +
-      '<div class="stop-right">' +
-        (s.time ? '<div class="stop-time">' + s.time + ' 抵達</div>' : '') +
-        '<div class="stop-place">' + (s.place||'') + '</div>' +
-        (s.duration ? '<div class="stop-note">⏱ ' + s.duration + '</div>' : '') +
-        (s.note ? '<div class="stop-note">' + s.note + '</div>' : '') +
-        '<button class="stop-del" onclick="delStop(' + t.id + ',' + i + ')">🗑 刪除</button>' +
-      '</div>' +
-      '</div>';
-    // 交通行
-    if (!isLast && s.transit) {
-      timelineHTML += '<div class="transit-item">' +
-        '<div class="transit-left"><div style="width:2px;background:#e8e0ff;height:100%;margin:0 auto"></div></div>' +
-        '<div class="transit-right">' +
-          '<span class="transit-badge">' + (s.transit.mode||'') + ' ' + (s.transit.duration||'') + '</span>' +
-          (s.transit.arrive ? '<span class="transit-arrive">' + s.transit.arrive + ' 到達</span>' : '') +
+    timelineHTML += '<div class="tl-stop">' +
+      '<div class="tl-left"><div class="tl-num">' + (i+1) + '</div>' + (!isLast || s.transit ? '<div class="tl-vline"></div>' : '') + '</div>' +
+      '<div class="tl-right">' +
+        (s.time ? '<div class="tl-time">' + s.time + ' 抵達</div>' : '') +
+        '<div class="tl-place">' + (s.place||'') + '</div>' +
+        (s.note ? '<div class="tl-note">' + s.note + '</div>' : '') +
+        '<button class="tl-del" onclick="delStop(' + t.id + ',' + i + ')">🗑 刪除</button>' +
+      '</div></div>';
+    if (s.transit && s.transit.mode) {
+      timelineHTML += '<div class="tl-transit">' +
+        '<div class="tl-transit-left"><div class="tl-transit-line"></div></div>' +
+        '<div class="tl-transit-right">' +
+          '<span class="transit-pill">' + s.transit.mode + (s.transit.dur ? ' · ' + s.transit.dur : '') + '</span>' +
+          (s.transit.arr ? '<span class="transit-info">→ ' + s.transit.arr + ' 到達</span>' : '') +
           '<button class="transit-del" onclick="delTransit(' + t.id + ',' + i + ')">✕</button>' +
-        '</div>' +
-        '</div>';
+        '</div></div>';
     }
   });
 
@@ -320,7 +336,17 @@ function renderPage(t, idx) {
     : '<span style="color:#a89cc8">—</span>';
 
   var credsHTML = creds.map(function(c, i) {
-    return '<div class="cred-item"><span>📎</span><span class="cred-text">' + c + '</span><button class="cred-del" onclick="delCred(' + t.id + ',' + i + ')">✕</button></div>';
+    var icon = c.icon || '📌';
+    return '<div class="cred-card">' +
+      '<div class="cred-top">' +
+        '<span class="cred-icon">' + icon + '</span>' +
+        '<span class="cred-title">' + (c.title||'') + '</span>' +
+        (c.type ? '<span class="cred-type">' + c.type.replace(/[✈️🏨🍽🎫🚃📄📌]/g,'').trim() + '</span>' : '') +
+        '<button class="cred-del" onclick="delCred(' + t.id + ',' + i + ')">✕</button>' +
+      '</div>' +
+      (c.url ? '<div class="cred-url">🔗 <a href="' + c.url + '" target="_blank" style="color:#6c3fc5">' + c.url + '</a></div>' : '') +
+      (c.note ? '<div class="cred-note">' + c.note + '</div>' : '') +
+      '</div>';
   }).join('');
 
   return '<div class="page' + (idx===0?' active':'') + '" id="page-' + t.id + '">' +
@@ -333,11 +359,12 @@ function renderPage(t, idx) {
       '<div class="info-row"><span class="lbl">費用</span><span class="val"><span class="price-badge">💴 ' + (t.note||'—') + '</span></span></div>' +
       '<div class="info-row"><span class="lbl">交通</span><div class="val"><div class="transport-wrap">' + transportHTML + '</div></div></div>' +
       '<hr class="divider">' +
-      '<div class="map-row"><div class="map-lbl">📍 當日行程地點</div><button class="map-btn" onclick="openMap(\'' + (t.dest||t.city||'仙台').replace(/'/g,"\\'") + '\')">Google Maps 路線 ↗</button></div>' +
+      '<div class="map-row"><div class="map-lbl">📍 當日行程地點</div><button class="map-btn" onclick="openMap(\'' + (t.dest||t.city||'仙台').replace(/'/g,"\\'") + '\')">Google Maps ↗</button></div>' +
       '<div class="timeline">' + timelineHTML + '</div>' +
       '<button class="add-stop-btn" onclick="currentId=' + t.id + ';openStopModal()">＋ 新增地點</button>' +
       (t.memo ? '<div class="note-box"><b>📝 備注</b>' + t.memo + '</div>' : '') +
-      '<div class="creds-section"><div class="creds-lbl">憑證</div>' + credsHTML + '<button class="add-stop-btn" style="margin-top:4px" onclick="currentId=' + t.id + ';openCredModal()">＋ 新增憑證</button></div>' +
+      '<div class="creds-section"><div class="creds-lbl">憑證</div>' + credsHTML +
+      '<button class="add-stop-btn" style="margin-top:4px" onclick="currentId=' + t.id + ';openCredModal()">＋ 新增憑證</button></div>' +
     '</div></div>';
 }
 
@@ -366,7 +393,14 @@ document.getElementById('transitPills').addEventListener('click', function(e) {
   var p = e.target.closest('.t-pill');
   if (p) {
     document.querySelectorAll('#transitPills .t-pill').forEach(function(x){ x.classList.remove('on'); });
-    p.classList.add('on');
+    p.classList.toggle('on');
+  }
+});
+document.getElementById('credTypes').addEventListener('click', function(e) {
+  var b = e.target.closest('.cred-type-btn');
+  if (b) {
+    document.querySelectorAll('.cred-type-btn').forEach(function(x){ x.classList.remove('on'); });
+    b.classList.add('on');
   }
 });
 
@@ -446,7 +480,7 @@ async function delDay(id) {
 }
 
 function openStopModal() {
-  ['s-time','s-place','s-duration','s-note','s-transit-time','s-transit-arrive'].forEach(function(id){ document.getElementById(id).value=''; });
+  ['s-time','s-place','s-note','s-transit-dur','s-transit-arr'].forEach(function(id){ document.getElementById(id).value=''; });
   document.querySelectorAll('#transitPills .t-pill').forEach(function(p){ p.classList.remove('on'); });
   document.getElementById('stopOverlay').classList.add('open');
 }
@@ -457,23 +491,14 @@ async function saveStop() {
   var place = document.getElementById('s-place').value.trim();
   if (!place) { toast('請輸入地點名稱'); return; }
   var transitMode = document.querySelector('#transitPills .t-pill.on');
-  var transitTime = document.getElementById('s-transit-time').value.trim();
+  var transitDur = document.getElementById('s-transit-dur').value.trim();
+  var transitArr = document.getElementById('s-transit-arr').value.trim();
   var transit = null;
-  if (transitMode || transitTime) {
-    transit = {
-      mode: transitMode ? transitMode.dataset.v : '',
-      duration: transitTime,
-      arrive: document.getElementById('s-transit-arrive').value.trim()
-    };
+  if (transitMode || transitDur) {
+    transit = { mode: transitMode ? transitMode.dataset.v : '', dur: transitDur, arr: transitArr };
   }
   var stops = Array.isArray(trip.stops) ? trip.stops.slice() : [];
-  stops.push({
-    time: document.getElementById('s-time').value,
-    place: place,
-    duration: document.getElementById('s-duration').value.trim(),
-    note: document.getElementById('s-note').value.trim(),
-    transit: transit
-  });
+  stops.push({ time: document.getElementById('s-time').value, place: place, note: document.getElementById('s-note').value.trim(), transit: transit });
   await api('PATCH', '/rest/v1/trips?id=eq.' + currentId, { stops: stops });
   closeOverlay('stopOverlay');
   toast('📍 地點已新增！');
@@ -501,17 +526,22 @@ async function delTransit(tripId, idx) {
 }
 
 function openCredModal() {
-  document.getElementById('c-text').value='';
+  ['c-title','c-url','c-note'].forEach(function(id){ document.getElementById(id).value=''; });
+  document.querySelectorAll('.cred-type-btn').forEach(function(b){ b.classList.remove('on'); });
   document.getElementById('credOverlay').classList.add('open');
 }
 
 async function saveCred() {
   var trip = trips.find(function(t){ return t.id===currentId; });
   if (!trip) return;
-  var text = document.getElementById('c-text').value.trim();
-  if (!text) { toast('請輸入憑證說明'); return; }
+  var title = document.getElementById('c-title').value.trim();
+  if (!title) { toast('請輸入名稱'); return; }
+  var typeBtn = document.querySelector('.cred-type-btn.on');
+  var type = typeBtn ? typeBtn.dataset.v : '📌 其他';
+  var icon = typeBtn ? typeBtn.dataset.icon : '📌';
+  var cred = { title: title, type: type, icon: icon, url: document.getElementById('c-url').value.trim(), note: document.getElementById('c-note').value.trim() };
   var creds = Array.isArray(trip.creds) ? trip.creds.slice() : [];
-  creds.push(text);
+  creds.push(cred);
   await api('PATCH', '/rest/v1/trips?id=eq.' + currentId, { creds: creds });
   closeOverlay('credOverlay');
   toast('📎 憑證已新增！');
