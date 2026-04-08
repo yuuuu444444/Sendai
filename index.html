@@ -11,25 +11,30 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: 'Noto Sans TC', sans-serif; background: #f0f4f0; color: var(--text); min-height: 100vh; padding-bottom: 80px; }
 
-.header { background: white; padding: 16px 16px 0; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
-.header-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+.header { background: white; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+.header-top { display: flex; align-items: center; justify-content: space-between; padding: 14px 16px 10px; }
 .trip-title { font-family: ‘Zen Kaku Gothic New’, sans-serif; font-size: 17px; font-weight: 900; }
 .connected { display: flex; align-items: center; gap: 4px; font-size: 11px; color: #52c41a; margin-top: 2px; }
 .dot { width: 7px; height: 7px; background: #52c41a; border-radius: 50%; }
 .btn-new { background: var(–text); color: white; border: none; border-radius: 10px; padding: 8px 12px; font-size: 12px; font-weight: 700; cursor: pointer; font-family: ‘Noto Sans TC’, sans-serif; }
 
-.date-tabs { display: flex; overflow-x: auto; scrollbar-width: none; margin: 0 -16px; padding: 0 16px; }
-.date-tabs::-webkit-scrollbar { display: none; }
-.date-tab { flex-shrink: 0; padding: 8px 14px 12px; text-align: center; cursor: pointer; border-bottom: 3px solid transparent; min-width: 58px; }
+/* Date tabs - 跟參考圖一樣的格式 */
+.date-scroll { overflow-x: auto; scrollbar-width: none; border-bottom: 1px solid var(–border); }
+.date-scroll::-webkit-scrollbar { display: none; }
+.date-row { display: flex; min-width: max-content; }
+.date-tab { flex-shrink: 0; width: 72px; padding: 6px 0 8px; text-align: center; cursor: pointer; border-bottom: 3px solid transparent; margin-bottom: -1px; }
 .date-tab.active { border-bottom-color: var(–primary); }
-.tab-month { font-size: 10px; color: var(–muted); }
-.tab-num { font-size: 22px; font-weight: 900; font-family: ‘Zen Kaku Gothic New’, sans-serif; color: var(–muted); line-height: 1.1; }
+.tab-date { font-size: 10px; color: var(–muted); }
+.tab-num { font-size: 24px; font-weight: 900; font-family: ‘Zen Kaku Gothic New’, sans-serif; color: var(–muted); line-height: 1.1; }
 .date-tab.active .tab-num { color: var(–primary); }
-.tab-day { font-size: 10px; color: var(–muted); }
+.tab-weekday { font-size: 10px; color: var(–muted); }
 
-.city-chips { display: flex; gap: 6px; overflow-x: auto; padding: 8px 16px; margin: 0 -16px; scrollbar-width: none; background: white; border-top: 1px solid var(–border); }
-.city-chips::-webkit-scrollbar { display: none; }
-.chip { flex-shrink: 0; padding: 3px 10px; border-radius: 20px; font-size: 11px; font-weight: 700; cursor: pointer; }
+/* City row - 跟日期對齊 */
+.city-row { display: flex; overflow-x: auto; scrollbar-width: none; border-top: 1px solid var(–border); background: white; }
+.city-row::-webkit-scrollbar { display: none; }
+.city-cell { flex-shrink: 0; width: 72px; padding: 5px 4px; text-align: center; cursor: pointer; }
+.city-chip { display: inline-block; padding: 2px 6px; border-radius: 10px; font-size: 10px; font-weight: 700; white-space: nowrap; max-width: 68px; overflow: hidden; text-overflow: ellipsis; }
+.city-sub { font-size: 9px; color: var(–muted); margin-top: 1px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .chip-green { background: #e8f5ee; color: #2d6a4f; }
 .chip-orange { background: #fff0e0; color: #e07b00; }
 .chip-pink { background: #ffe8f0; color: #c0392b; }
@@ -41,23 +46,27 @@ body { font-family: 'Noto Sans TC', sans-serif; background: #f0f4f0; color: var(
 .card-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
 .card-title { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .card-title h2 { font-size: 17px; font-weight: 900; font-family: ‘Zen Kaku Gothic New’, sans-serif; }
+.badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 11px; font-weight: 700; }
 .card-actions { display: flex; gap: 2px; }
 .icon-btn { background: none; border: none; font-size: 16px; cursor: pointer; opacity: 0.5; padding: 4px; }
 .info-row { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; }
 .lbl { color: var(–muted); font-size: 12px; min-width: 36px; padding-top: 1px; }
 .val { flex: 1; font-size: 13px; font-weight: 500; line-height: 1.5; }
 .price-badge { background: #fff8e1; color: #e65100; padding: 2px 8px; border-radius: 8px; font-size: 12px; font-weight: 700; display: inline-block; }
-.pills { display: flex; flex-wrap: wrap; gap: 5px; }
-.pill { padding: 4px 10px; border-radius: 20px; font-size: 12px; border: 1.5px solid var(–border); background: white; color: var(–text); display: inline-block; }
-.pill.on { background: var(–text) !important; color: white !important; border-color: var(–text) !important; }
+
+/* 交通工具 pills - 有邊框樣式，選中的黑底白字 */
+.transport-wrap { display: flex; flex-wrap: wrap; gap: 6px; }
+.t-show { padding: 5px 12px; border-radius: 20px; font-size: 12px; border: 1.5px solid #ddd; background: white; color: var(–text); display: inline-flex; align-items: center; gap: 4px; }
+.t-show.selected { background: var(–text); color: white; border-color: var(–text); }
+
 .divider { border: none; border-top: 1px solid var(–border); margin: 14px 0; }
 .map-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
 .map-lbl { font-size: 12px; color: var(–muted); }
 .map-btn { background: #e8f4ff; color: #1a73e8; border: none; border-radius: 8px; padding: 6px 12px; font-size: 12px; font-weight: 700; cursor: pointer; font-family: ‘Noto Sans TC’, sans-serif; }
 .stops { display: flex; flex-direction: column; gap: 7px; }
 .stop-item { display: flex; align-items: center; gap: 10px; background: var(–soft); border-radius: 10px; padding: 10px 12px; }
-.stop-num { width: 26px; height: 26px; background: var(–text); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; flex-shrink: 0; }
-.stop-time { font-size: 12px; color: var(–muted); min-width: 42px; }
+.stop-num { width: 28px; height: 28px; background: var(–text); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; flex-shrink: 0; }
+.stop-time { font-size: 12px; color: var(–muted); min-width: 44px; }
 .stop-info { flex: 1; }
 .stop-place { font-size: 14px; font-weight: 700; }
 .stop-note { font-size: 11px; color: var(–muted); margin-top: 1px; }
@@ -71,18 +80,19 @@ body { font-family: 'Noto Sans TC', sans-serif; background: #f0f4f0; color: var(
 .cred-text { flex: 1; font-size: 13px; font-weight: 500; }
 .cred-del { background: none; border: none; font-size: 13px; cursor: pointer; opacity: 0.4; }
 
+/* Modal */
 .overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 200; align-items: flex-end; }
 .overlay.open { display: flex; }
 .modal { background: white; border-radius: 20px 20px 0 0; padding: 20px 16px 40px; width: 100%; max-height: 88vh; overflow-y: auto; }
 .modal-title { font-size: 16px; font-weight: 900; margin-bottom: 16px; }
 .field { margin-bottom: 11px; }
 .field label { display: block; font-size: 11px; color: var(–muted); margin-bottom: 4px; font-weight: 700; }
-.field input, .field textarea { width: 100%; padding: 10px 12px; border: 1.5px solid var(–border); border-radius: 10px; font-size: 14px; font-family: ‘Noto Sans TC’, sans-serif; outline: none; color: var(–text); }
+.field input, .field textarea { width: 100%; padding: 10px 12px; border: 1.5px solid var(–border); border-radius: 10px; font-size: 14px; font-family: ‘Noto Sans TC’, sans-serif; outline: none; color: var(–text); background: white; }
 .field input:focus, .field textarea:focus { border-color: var(–primary); }
 .field textarea { height: 72px; resize: none; }
 .t-pills { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
-.t-pill { padding: 6px 12px; border-radius: 20px; border: 1.5px solid var(–border); font-size: 12px; cursor: pointer; user-select: none; background: white; color: var(–text); display: inline-block; }
-.t-pill.on { background: var(–text) !important; color: white !important; border-color: var(–text) !important; }
+.t-pill { padding: 6px 12px; border-radius: 20px; border: 1.5px solid var(–border); font-size: 12px; cursor: pointer; user-select: none; background: white; color: var(–text); }
+.t-pill.on { background: var(–text); color: white; border-color: var(–text); }
 .modal-btns { display: flex; gap: 10px; margin-top: 16px; }
 .btn-cancel { flex: 1; padding: 12px; border: 1.5px solid var(–border); border-radius: 12px; background: none; font-size: 14px; font-weight: 700; cursor: pointer; font-family: ‘Noto Sans TC’, sans-serif; }
 .btn-save { flex: 2; padding: 12px; background: var(–primary); color: white; border: none; border-radius: 12px; font-size: 14px; font-weight: 700; cursor: pointer; font-family: ‘Noto Sans TC’, sans-serif; }
@@ -109,14 +119,12 @@ body { font-family: 'Noto Sans TC', sans-serif; background: #f0f4f0; color: var(
     </div>
     <button class="btn-new" onclick="openDayModal()">＋ 新增行程</button>
   </div>
-  <div class="date-tabs" id="tabs"></div>
-  <div class="city-chips" id="chips"></div>
+  <div class="date-scroll"><div class="date-row" id="tabs"></div></div>
+  <div class="city-row" id="chips"></div>
 </div>
 
 <div id="pages"><div class="loading"><div class="spinner"></div>載入中...</div></div>
 <button class="fab" id="fab" onclick="openStopModal()">＋ 新增地點</button>
-
-<!-- 新增/編輯行程 -->
 
 <div class="overlay" id="dayOverlay">
   <div class="modal">
@@ -124,10 +132,11 @@ body { font-family: 'Noto Sans TC', sans-serif; background: #f0f4f0; color: var(
     <div class="field"><label>日期（例：5/10）</label><input id="d-date" placeholder="5/10"></div>
     <div class="field"><label>星期（例：六）</label><input id="d-week" placeholder="六" maxlength="1"></div>
     <div class="field"><label>城市</label><input id="d-city" placeholder="仙台"></div>
+    <div class="field"><label>城市副標（可選，例：關西…）</label><input id="d-sub" placeholder="關西…"></div>
     <div class="field"><label>目的地</label><input id="d-dest" placeholder="仙台站 → 松島"></div>
     <div class="field"><label>行程說明</label><input id="d-itin" placeholder="觀光、美食、購物"></div>
     <div class="field"><label>住宿</label><input id="d-hotel" placeholder="Richmond Hotel Sendai"></div>
-    <div class="field"><label>交通方式</label>
+    <div class="field"><label>交通方式（可多選）</label>
       <div class="t-pills" id="tpills">
         <span class="t-pill" data-v="✈️ 飛機">✈️ 飛機</span>
         <span class="t-pill" data-v="🚃 電車">🚃 電車</span>
@@ -137,7 +146,7 @@ body { font-family: 'Noto Sans TC', sans-serif; background: #f0f4f0; color: var(
         <span class="t-pill" data-v="🚗 自駕">🚗 自駕</span>
         <span class="t-pill" data-v="🚢 船">🚢 船</span>
       </div>
-      <input id="d-transport-custom" placeholder="自填其他交通方式（可選）" style="margin-top:6px">
+      <input id="d-transport-custom" placeholder="自填其他（例：纜車）">
     </div>
     <div class="field"><label>費用預算</label><input id="d-note" placeholder="住宿 NT$2,500、餐費 NT$800"></div>
     <div class="field"><label>備注 / 注意事項</label><textarea id="d-memo" placeholder="牛舌記得訂位！Suica 可直接使用..."></textarea></div>
@@ -147,8 +156,6 @@ body { font-family: 'Noto Sans TC', sans-serif; background: #f0f4f0; color: var(
     </div>
   </div>
 </div>
-
-<!-- 新增地點 -->
 
 <div class="overlay" id="stopOverlay">
   <div class="modal">
@@ -162,8 +169,6 @@ body { font-family: 'Noto Sans TC', sans-serif; background: #f0f4f0; color: var(
     </div>
   </div>
 </div>
-
-<!-- 新增憑證 -->
 
 <div class="overlay" id="credOverlay">
   <div class="modal">
@@ -232,14 +237,17 @@ function renderAll() {
   tabs.innerHTML = trips.map((t, i) => {
     const p = (t.date||'').split('/');
     return `<div class="date-tab${i===0?' active':''}" id="tab-${t.id}" onclick="switchTo(${t.id})">
-      <div class="tab-month">${p[0]||''}/${p[1]||''}</div>
-      <div class="tab-num">${p[1]||i+1}</div>
-      <div class="tab-day">${t.day||''}</div>
+      <div class="tab-date">${p[0]||''}/${p[1]||''}</div>
+      <div class="tab-num">${p[1]||String(i+1).padStart(2,'0')}</div>
+      <div class="tab-weekday">${t.day||''}</div>
     </div>`;
   }).join('');
 
   chips.innerHTML = trips.map((t, i) =>
-    `<span class="chip ${chipClass(t.city)}${i===0?' active':''}" id="chip-${t.id}" onclick="switchTo(${t.id})">${t.city||'行程'}</span>`
+    `<div class="city-cell${i===0?' active':''}" id="chip-${t.id}" onclick="switchTo(${t.id})">
+      <div class="city-chip ${chipClass(t.city)}">${t.city||'行程'}</div>
+      ${t.itin ? `<div class="city-sub">${t.itin.slice(0,5)}…</div>` : ''}
+    </div>`
   ).join('');
 
   pages.innerHTML = trips.map((t, i) => renderPage(t, i)).join('');
@@ -250,8 +258,7 @@ function renderAll() {
 function renderPage(t, idx) {
   const stops = Array.isArray(t.stops) ? t.stops : [];
   const creds = Array.isArray(t.creds) ? t.creds : [];
-  const transport = t.transport ? t.transport.split(',').filter(x=>x) : [];
-  const allT = ['✈️ 飛機','🚃 電車','🚌 巴士','🚕 計程車','🚶 步行','🚗 自駕','🚢 船'];
+  const transport = t.transport ? t.transport.split(',').filter(x=>x.trim()) : [];
 
   const stopsHTML = stops.map((s, i) => `
     <div class="stop-item">
@@ -271,12 +278,16 @@ function renderPage(t, idx) {
       <button class="cred-del" onclick="delCred(${t.id},${i})">✕</button>
     </div>`).join('');
 
+  const transportHTML = transport.length
+    ? transport.map(p => `<span class="t-show selected">${p}</span>`).join('')
+    : '<span style="color:var(--muted);font-size:13px">—</span>';
+
   return `<div class="page${idx===0?' active':''}" id="page-${t.id}">
     <div class="card">
       <div class="card-header">
         <div class="card-title">
           <h2>第${idx+1}天(${t.day||''})</h2>
-          <span class="chip ${chipClass(t.city)}">${t.city||''}</span>
+          <span class="badge ${chipClass(t.city)}">${t.city||''}</span>
         </div>
         <div class="card-actions">
           <button class="icon-btn" onclick="openEditModal(${t.id})">✏️</button>
@@ -289,7 +300,7 @@ function renderPage(t, idx) {
       <div class="info-row"><span class="lbl">費用</span><span class="val"><span class="price-badge">💴 ${t.note||'—'}</span></span></div>
       <div class="info-row">
         <span class="lbl">交通</span>
-        <div class="val"><div class="pills">${transport.map(p=>`<span class="pill on">${p}</span>`).join('') || '—'}</div></div>
+        <div class="val"><div class="transport-wrap">${transportHTML}</div></div>
       </div>
       <hr class="divider">
       <div class="map-row">
@@ -313,7 +324,7 @@ function renderPage(t, idx) {
 function switchTo(id) {
   currentId = id;
   document.querySelectorAll('.date-tab').forEach(el => el.classList.remove('active'));
-  document.querySelectorAll('.chip').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.city-cell').forEach(el => el.classList.remove('active'));
   document.querySelectorAll('.page').forEach(el => el.classList.remove('active'));
   document.getElementById(`tab-${id}`)?.classList.add('active');
   document.getElementById(`chip-${id}`)?.classList.add('active');
@@ -333,7 +344,7 @@ function openDayModal() {
   editingId = null;
   document.getElementById('dayModalTitle').textContent = '📅 新增行程天數';
   document.getElementById('saveDayBtn').textContent = '儲存行程';
-  ['d-date','d-week','d-city','d-dest','d-itin','d-hotel','d-note','d-memo','d-transport-custom'].forEach(id => document.getElementById(id).value='');
+  ['d-date','d-week','d-city','d-sub','d-dest','d-itin','d-hotel','d-note','d-memo','d-transport-custom'].forEach(id => document.getElementById(id).value='');
   document.querySelectorAll('.t-pill').forEach(p => p.classList.remove('on'));
   document.getElementById('dayOverlay').classList.add('open');
 }
@@ -347,6 +358,7 @@ function openEditModal(id) {
   document.getElementById('d-date').value = t.date||'';
   document.getElementById('d-week').value = t.day||'';
   document.getElementById('d-city').value = t.city||'';
+  document.getElementById('d-sub').value = t.sub||'';
   document.getElementById('d-dest').value = t.dest||'';
   document.getElementById('d-itin').value = t.itin||'';
   document.getElementById('d-hotel').value = t.hotel||'';
@@ -369,15 +381,15 @@ async function saveDay() {
     const selected = [...document.querySelectorAll('.t-pill.on')].map(p=>p.dataset.v);
     const custom = document.getElementById('d-transport-custom').value.trim();
     if (custom) custom.split(/[、,，]/).forEach(x => { if(x.trim()) selected.push(x.trim()); });
-    const transport = selected.join(',');
     const body = {
       date: document.getElementById('d-date').value,
       day: document.getElementById('d-week').value,
       city: document.getElementById('d-city').value,
+      sub: document.getElementById('d-sub').value,
       dest: document.getElementById('d-dest').value,
       itin: document.getElementById('d-itin').value,
       hotel: document.getElementById('d-hotel').value,
-      transport,
+      transport: selected.join(','),
       note: document.getElementById('d-note').value,
       memo: document.getElementById('d-memo').value,
     };
@@ -390,11 +402,11 @@ async function saveDay() {
       toast('✅ 行程已新增！');
     }
     closeOverlay('dayOverlay');
-    const sid = editingId || null;
+    const sid = editingId;
     await load();
     if (sid) switchTo(sid);
     else if (trips.length > 0) switchTo(trips[trips.length-1].id);
-  } catch(e) { toast('⚠️ 儲存失敗：' + e.message); }
+  } catch(e) { toast('⚠️ 儲存失敗'); console.error(e); }
   btn.disabled = false;
   btn.textContent = editingId ? '更新行程' : '儲存行程';
 }
