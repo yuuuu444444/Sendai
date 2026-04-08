@@ -16,23 +16,18 @@ body { font-family: 'Noto Sans TC', sans-serif; background: #f5f0ff; color: #2d1
 .dot { width: 7px; height: 7px; background: #52c41a; border-radius: 50%; display: inline-block; }
 .btn-new { background: #1a2d6e; color: white; border: none; border-radius: 10px; padding: 8px 12px; font-size: 12px; font-weight: 700; cursor: pointer; font-family: 'Noto Sans TC', sans-serif; }
 
-/* 日期框框 */
 .date-scroll { overflow-x: auto; scrollbar-width: none; padding: 10px 16px 0; }
 .date-scroll::-webkit-scrollbar { display: none; }
 .date-row { display: flex; gap: 8px; padding-bottom: 10px; }
-.date-tab {
-flex-shrink: 0; width: 62px; padding: 6px 4px; text-align: center; cursor: pointer;
-border: 2px solid #9b6dff; border-radius: 12px; background: #f0ebff; transition: all 0.15s;
-}
+.date-tab { flex-shrink: 0; width: 62px; padding: 6px 4px; text-align: center; cursor: pointer; border: 2px solid #9b6dff; border-radius: 12px; background: white; transition: all 0.15s; }
 .date-tab.active { background: #ffe0ec; border-color: #ffb6cc; }
 .tab-date { font-size: 10px; color: #9b6dff; }
 .date-tab.active .tab-date { color: #c0396e; }
-.tab-num { font-size: 18px; font-weight: 900; font-family: ‘Zen Kaku Gothic New’, sans-serif; color: #9b6dff; line-height: 1.2; }
+.tab-num { font-size: 15px; font-weight: 900; font-family: ‘Zen Kaku Gothic New’, sans-serif; color: #9b6dff; line-height: 1.3; }
 .date-tab.active .tab-num { color: #c0396e; }
 .tab-weekday { font-size: 10px; color: #9b6dff; }
 .date-tab.active .tab-weekday { color: #c0396e; }
 
-/* 城市列 */
 .city-row { display: flex; overflow-x: auto; scrollbar-width: none; background: white; border-top: 1px solid #e8e0ff; border-bottom: 1px solid #e8e0ff; padding: 0 8px; }
 .city-row::-webkit-scrollbar { display: none; }
 .city-cell { flex-shrink: 0; width: 70px; padding: 5px 4px; text-align: center; cursor: pointer; }
@@ -57,25 +52,36 @@ border: 2px solid #9b6dff; border-radius: 12px; background: #f0ebff; transition:
 .lbl { color: #a89cc8; font-size: 12px; min-width: 36px; padding-top: 1px; }
 .val { flex: 1; font-size: 13px; font-weight: 500; line-height: 1.5; color: #2d1b69; }
 .price-badge { background: #fff8e1; color: #c57a00; padding: 2px 8px; border-radius: 8px; font-size: 12px; font-weight: 700; display: inline-block; }
-
-/* 交通工具 - 選中：淡粉邊框+淡粉背景 */
 .transport-wrap { display: flex; flex-wrap: wrap; gap: 6px; }
 .t-tag { padding: 5px 12px; border-radius: 20px; font-size: 13px; font-weight: 500; border: 1.5px solid #d4c8ff; background: white; color: #2d1b69; display: inline-block; }
 .t-tag.selected { background: #ffe0ec; color: #c0396e; border-color: #ffb6cc; }
-
 .divider { border: none; border-top: 1px solid #e8e0ff; margin: 14px 0; }
 .map-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
 .map-lbl { font-size: 12px; color: #a89cc8; }
 .map-btn { background: #e8f0ff; color: #1a2d6e; border: none; border-radius: 8px; padding: 6px 12px; font-size: 12px; font-weight: 700; cursor: pointer; font-family: ‘Noto Sans TC’, sans-serif; }
-.stops { display: flex; flex-direction: column; gap: 7px; }
-.stop-item { display: flex; align-items: center; gap: 10px; background: #f5f0ff; border-radius: 10px; padding: 10px 12px; }
-.stop-num { width: 28px; height: 28px; background: #1a2d6e; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; flex-shrink: 0; }
-.stop-time { font-size: 12px; color: #a89cc8; min-width: 44px; }
-.stop-info { flex: 1; }
+
+/* 時間軸 */
+.timeline { display: flex; flex-direction: column; }
+.stop-item { display: flex; gap: 10px; padding: 8px 0; position: relative; }
+.stop-left { display: flex; flex-direction: column; align-items: center; width: 28px; flex-shrink: 0; }
+.stop-num { width: 28px; height: 28px; background: #1a2d6e; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; flex-shrink: 0; }
+.stop-line { width: 2px; flex: 1; background: #e8e0ff; margin: 3px 0; min-height: 20px; }
+.stop-right { flex: 1; padding-bottom: 4px; }
+.stop-time { font-size: 11px; color: #a89cc8; margin-bottom: 2px; }
 .stop-place { font-size: 14px; font-weight: 700; color: #2d1b69; }
-.stop-note { font-size: 11px; color: #a89cc8; margin-top: 1px; }
-.stop-del { background: none; border: none; font-size: 14px; cursor: pointer; opacity: 0.4; flex-shrink: 0; }
-.add-btn { border: 2px dashed #d4c8ff; background: none; border-radius: 10px; padding: 10px; width: 100%; color: #a89cc8; font-size: 13px; cursor: pointer; font-family: ‘Noto Sans TC’, sans-serif; margin-top: 6px; }
+.stop-note { font-size: 11px; color: #a89cc8; margin-top: 2px; }
+.stop-del { background: none; border: none; font-size: 13px; cursor: pointer; opacity: 0.4; padding: 2px 4px; }
+
+/* 交通行 */
+.transit-item { display: flex; gap: 10px; padding: 2px 0; }
+.transit-left { width: 28px; display: flex; justify-content: center; flex-shrink: 0; }
+.transit-line-wrap { width: 2px; background: #e8e0ff; position: relative; }
+.transit-right { flex: 1; display: flex; align-items: center; gap: 6px; padding: 4px 0; }
+.transit-badge { background: #f5f0ff; border: 1px solid #d4c8ff; border-radius: 20px; padding: 3px 10px; font-size: 11px; color: #6c3fc5; display: inline-flex; align-items: center; gap: 4px; }
+.transit-del { background: none; border: none; font-size: 12px; cursor: pointer; opacity: 0.4; }
+.transit-arrive { font-size: 11px; color: #a89cc8; margin-left: auto; }
+
+.add-stop-btn { border: 2px dashed #d4c8ff; background: none; border-radius: 10px; padding: 10px; width: 100%; color: #a89cc8; font-size: 13px; cursor: pointer; font-family: ‘Noto Sans TC’, sans-serif; margin-top: 6px; }
 .note-box { background: #fffbf0; border-left: 3px solid #f4a261; border-radius: 0 10px 10px 0; padding: 10px 12px; margin-top: 12px; font-size: 12px; color: #7a5c00; line-height: 1.6; }
 .note-box b { display: block; color: #e76f51; font-size: 13px; margin-bottom: 3px; }
 .creds-section { margin-top: 14px; }
@@ -127,6 +133,8 @@ border: 2px solid #9b6dff; border-radius: 12px; background: #f0ebff; transition:
 <div id="pages"><div class="loading"><div class="spinner"></div>載入中...</div></div>
 <button class="fab" id="fab" onclick="openStopModal()">＋ 新增地點</button>
 
+<!-- 新增行程 -->
+
 <div class="overlay" id="dayOverlay">
   <div class="modal">
     <div class="modal-title" id="dayModalTitle">📅 新增行程天數</div>
@@ -158,18 +166,38 @@ border: 2px solid #9b6dff; border-radius: 12px; background: #f0ebff; transition:
   </div>
 </div>
 
+<!-- 新增地點 -->
+
 <div class="overlay" id="stopOverlay">
   <div class="modal">
-    <div class="modal-title">📍 新增地點</div>
-    <div class="field"><label>時間</label><input id="s-time" type="time"></div>
+    <div class="modal-title" id="stopModalTitle">📍 新增地點</div>
+    <div class="field"><label>抵達時間（例：10:00）</label><input id="s-time" type="time"></div>
     <div class="field"><label>地點名稱</label><input id="s-place" placeholder="瑞巖寺"></div>
-    <div class="field"><label>備注（可選）</label><input id="s-note" placeholder="門票 NT$200"></div>
+    <div class="field"><label>停留時間（例：2小時）</label><input id="s-duration" placeholder="2小時30分鐘"></div>
+    <div class="field"><label>備注（可選）</label><input id="s-note" placeholder="門票 NT$200、必拍景點"></div>
+    <div style="margin-top:14px;padding-top:14px;border-top:1px solid #e8e0ff">
+      <div style="font-size:13px;font-weight:700;color:#2d1b69;margin-bottom:10px">🚗 前往下一站的交通</div>
+      <div class="field"><label>交通方式</label>
+        <div class="t-pills" id="transitPills" style="margin-bottom:8px">
+          <span class="t-pill" data-v="🚃 電車">🚃 電車</span>
+          <span class="t-pill" data-v="🚌 巴士">🚌 巴士</span>
+          <span class="t-pill" data-v="🚕 計程車">🚕 計程車</span>
+          <span class="t-pill" data-v="🚶 步行">🚶 步行</span>
+          <span class="t-pill" data-v="🚗 自駕">🚗 自駕</span>
+          <span class="t-pill" data-v="✈️ 飛機">✈️ 飛機</span>
+        </div>
+      </div>
+      <div class="field"><label>所需時間（例：22分鐘）</label><input id="s-transit-time" placeholder="22分鐘"></div>
+      <div class="field"><label>抵達時間（例：10:22）</label><input id="s-transit-arrive" placeholder="10:22"></div>
+    </div>
     <div class="modal-btns">
       <button class="btn-cancel" onclick="closeOverlay('stopOverlay')">取消</button>
       <button class="btn-save" onclick="saveStop()">新增地點</button>
     </div>
   </div>
 </div>
+
+<!-- 新增憑證 -->
 
 <div class="overlay" id="credOverlay">
   <div class="modal">
@@ -256,19 +284,45 @@ function renderPage(t, idx) {
   var stops = Array.isArray(t.stops) ? t.stops : [];
   var creds = Array.isArray(t.creds) ? t.creds : [];
   var transport = t.transport ? t.transport.split(',').filter(function(x){ return x.trim(); }) : [];
-  var stopsHTML = stops.map(function(s, i) {
-    return '<div class="stop-item">' +
-      '<div class="stop-num">' + (i+1) + '</div>' +
-      '<div class="stop-time">' + (s.time||'') + '</div>' +
-      '<div class="stop-info"><div class="stop-place">' + (s.place||'') + '</div>' + (s.note ? '<div class="stop-note">' + s.note + '</div>' : '') + '</div>' +
-      '<button class="stop-del" onclick="delStop(' + t.id + ',' + i + ')">🗑</button></div>';
-  }).join('');
-  var credsHTML = creds.map(function(c, i) {
-    return '<div class="cred-item"><span>📎</span><span class="cred-text">' + c + '</span><button class="cred-del" onclick="delCred(' + t.id + ',' + i + ')">✕</button></div>';
-  }).join('');
+
+  // 時間軸 HTML
+  var timelineHTML = '';
+  stops.forEach(function(s, i) {
+    var isLast = i === stops.length - 1;
+    timelineHTML += '<div class="stop-item">' +
+      '<div class="stop-left">' +
+        '<div class="stop-num">' + (i+1) + '</div>' +
+        (!isLast ? '<div class="stop-line"></div>' : '') +
+      '</div>' +
+      '<div class="stop-right">' +
+        (s.time ? '<div class="stop-time">' + s.time + ' 抵達</div>' : '') +
+        '<div class="stop-place">' + (s.place||'') + '</div>' +
+        (s.duration ? '<div class="stop-note">⏱ ' + s.duration + '</div>' : '') +
+        (s.note ? '<div class="stop-note">' + s.note + '</div>' : '') +
+        '<button class="stop-del" onclick="delStop(' + t.id + ',' + i + ')">🗑 刪除</button>' +
+      '</div>' +
+      '</div>';
+    // 交通行
+    if (!isLast && s.transit) {
+      timelineHTML += '<div class="transit-item">' +
+        '<div class="transit-left"><div style="width:2px;background:#e8e0ff;height:100%;margin:0 auto"></div></div>' +
+        '<div class="transit-right">' +
+          '<span class="transit-badge">' + (s.transit.mode||'') + ' ' + (s.transit.duration||'') + '</span>' +
+          (s.transit.arrive ? '<span class="transit-arrive">' + s.transit.arrive + ' 到達</span>' : '') +
+          '<button class="transit-del" onclick="delTransit(' + t.id + ',' + i + ')">✕</button>' +
+        '</div>' +
+        '</div>';
+    }
+  });
+
   var transportHTML = transport.length > 0
     ? transport.map(function(p) { return '<span class="t-tag selected">' + p + '</span>'; }).join('')
     : '<span style="color:#a89cc8">—</span>';
+
+  var credsHTML = creds.map(function(c, i) {
+    return '<div class="cred-item"><span>📎</span><span class="cred-text">' + c + '</span><button class="cred-del" onclick="delCred(' + t.id + ',' + i + ')">✕</button></div>';
+  }).join('');
+
   return '<div class="page' + (idx===0?' active':'') + '" id="page-' + t.id + '">' +
     '<div class="card">' +
       '<div class="card-header"><div class="card-title"><h2>Day ' + (idx+1) + ' (' + (t.day||'') + ')</h2><span class="badge ' + chipClass(t.city) + '">' + (t.city||'') + '</span></div>' +
@@ -280,9 +334,10 @@ function renderPage(t, idx) {
       '<div class="info-row"><span class="lbl">交通</span><div class="val"><div class="transport-wrap">' + transportHTML + '</div></div></div>' +
       '<hr class="divider">' +
       '<div class="map-row"><div class="map-lbl">📍 當日行程地點</div><button class="map-btn" onclick="openMap(\'' + (t.dest||t.city||'仙台').replace(/'/g,"\\'") + '\')">Google Maps 路線 ↗</button></div>' +
-      '<div class="stops">' + stopsHTML + '<button class="add-btn" onclick="currentId=' + t.id + ';openStopModal()">＋ 新增地點</button></div>' +
+      '<div class="timeline">' + timelineHTML + '</div>' +
+      '<button class="add-stop-btn" onclick="currentId=' + t.id + ';openStopModal()">＋ 新增地點</button>' +
       (t.memo ? '<div class="note-box"><b>📝 備注</b>' + t.memo + '</div>' : '') +
-      '<div class="creds-section"><div class="creds-lbl">憑證</div>' + credsHTML + '<button class="add-btn" onclick="currentId=' + t.id + ';openCredModal()">＋ 新增憑證</button></div>' +
+      '<div class="creds-section"><div class="creds-lbl">憑證</div>' + credsHTML + '<button class="add-stop-btn" style="margin-top:4px" onclick="currentId=' + t.id + ';openCredModal()">＋ 新增憑證</button></div>' +
     '</div></div>';
 }
 
@@ -307,13 +362,20 @@ document.getElementById('tpills').addEventListener('click', function(e) {
   var p = e.target.closest('.t-pill');
   if (p) p.classList.toggle('on');
 });
+document.getElementById('transitPills').addEventListener('click', function(e) {
+  var p = e.target.closest('.t-pill');
+  if (p) {
+    document.querySelectorAll('#transitPills .t-pill').forEach(function(x){ x.classList.remove('on'); });
+    p.classList.add('on');
+  }
+});
 
 function openDayModal() {
   editingId = null;
   document.getElementById('dayModalTitle').textContent = '📅 新增行程天數';
   document.getElementById('saveDayBtn').textContent = '儲存行程';
   ['d-date','d-week','d-city','d-sub','d-dest','d-itin','d-hotel','d-note','d-memo','d-transport-custom'].forEach(function(id){ document.getElementById(id).value=''; });
-  document.querySelectorAll('.t-pill').forEach(function(p){ p.classList.remove('on'); });
+  document.querySelectorAll('#tpills .t-pill').forEach(function(p){ p.classList.remove('on'); });
   document.getElementById('dayOverlay').classList.add('open');
 }
 
@@ -335,7 +397,7 @@ function openEditModal(id) {
   var transport = t.transport ? t.transport.split(',').filter(function(x){ return x; }) : [];
   var presets = ['✈️ 飛機','🚃 電車','🚌 巴士','🚕 計程車','🚶 步行','🚗 自駕','🚢 船'];
   document.getElementById('d-transport-custom').value = transport.filter(function(x){ return presets.indexOf(x)===-1; }).join('、');
-  document.querySelectorAll('.t-pill').forEach(function(p){ p.classList.toggle('on', transport.indexOf(p.dataset.v)!==-1); });
+  document.querySelectorAll('#tpills .t-pill').forEach(function(p){ p.classList.toggle('on', transport.indexOf(p.dataset.v)!==-1); });
   document.getElementById('dayOverlay').classList.add('open');
 }
 
@@ -343,7 +405,7 @@ async function saveDay() {
   var btn = document.getElementById('saveDayBtn');
   btn.disabled = true; btn.textContent = '儲存中...';
   try {
-    var selected = Array.from(document.querySelectorAll('.t-pill.on')).map(function(p){ return p.dataset.v; });
+    var selected = Array.from(document.querySelectorAll('#tpills .t-pill.on')).map(function(p){ return p.dataset.v; });
     var custom = document.getElementById('d-transport-custom').value.trim();
     if (custom) custom.split(/[、,，]/).forEach(function(x){ if(x.trim()) selected.push(x.trim()); });
     var body = {
@@ -384,9 +446,8 @@ async function delDay(id) {
 }
 
 function openStopModal() {
-  document.getElementById('s-time').value='';
-  document.getElementById('s-place').value='';
-  document.getElementById('s-note').value='';
+  ['s-time','s-place','s-duration','s-note','s-transit-time','s-transit-arrive'].forEach(function(id){ document.getElementById(id).value=''; });
+  document.querySelectorAll('#transitPills .t-pill').forEach(function(p){ p.classList.remove('on'); });
   document.getElementById('stopOverlay').classList.add('open');
 }
 
@@ -395,8 +456,24 @@ async function saveStop() {
   if (!trip) return;
   var place = document.getElementById('s-place').value.trim();
   if (!place) { toast('請輸入地點名稱'); return; }
+  var transitMode = document.querySelector('#transitPills .t-pill.on');
+  var transitTime = document.getElementById('s-transit-time').value.trim();
+  var transit = null;
+  if (transitMode || transitTime) {
+    transit = {
+      mode: transitMode ? transitMode.dataset.v : '',
+      duration: transitTime,
+      arrive: document.getElementById('s-transit-arrive').value.trim()
+    };
+  }
   var stops = Array.isArray(trip.stops) ? trip.stops.slice() : [];
-  stops.push({ time: document.getElementById('s-time').value, place: place, note: document.getElementById('s-note').value.trim() });
+  stops.push({
+    time: document.getElementById('s-time').value,
+    place: place,
+    duration: document.getElementById('s-duration').value.trim(),
+    note: document.getElementById('s-note').value.trim(),
+    transit: transit
+  });
   await api('PATCH', '/rest/v1/trips?id=eq.' + currentId, { stops: stops });
   closeOverlay('stopOverlay');
   toast('📍 地點已新增！');
@@ -410,6 +487,16 @@ async function delStop(tripId, idx) {
   var stops = (trip.stops||[]).slice(); stops.splice(idx,1);
   await api('PATCH', '/rest/v1/trips?id=eq.' + tripId, { stops: stops });
   toast('🗑 地點已刪除');
+  await load(); switchTo(tripId);
+}
+
+async function delTransit(tripId, idx) {
+  var trip = trips.find(function(t){ return t.id===tripId; });
+  if (!trip) return;
+  var stops = (trip.stops||[]).slice();
+  if (stops[idx]) stops[idx].transit = null;
+  await api('PATCH', '/rest/v1/trips?id=eq.' + tripId, { stops: stops });
+  toast('🗑 交通已刪除');
   await load(); switchTo(tripId);
 }
 
